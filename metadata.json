@@ -1,0 +1,6 @@
+{
+  "name": "YieldWise",
+  "description": "An advanced investment comparison tool and AI-driven portfolio advisor with yield simulation models and real-time market rates.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

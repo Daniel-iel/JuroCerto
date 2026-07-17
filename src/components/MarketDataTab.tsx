@@ -1,0 +1,100 @@
+import { TrendingUp, RefreshCw, Layers, ShieldCheck, DollarSign, Award, ChevronRight } from "lucide-react";
+
+export default function MarketDataTab() {
+  const benchmarks = [
+    { name: "Selic Meta", rate: "11.25%", ppa: "11.25% p.a.", change: "0.00%", update: "Target Rate", desc: "Official interest rate target defined by COPOM.", icon: Award },
+    { name: "CDI Acumulado", rate: "11.15%", ppa: "11.15% p.a.", change: "-0.05%", update: "Market Average", desc: "Interbank deposit rate compiled daily by B3.", icon: TrendingUp },
+    { name: "IPCA (IBGE)", rate: "4.62%", ppa: "4.62% LTM", change: "+0.12%", update: "LTM Inflation", desc: "Broad national consumer price index measuring inflation.", icon: Layers },
+    { name: "TR (Taxa Referencial)", rate: "1.79%", ppa: "1.79% p.a.", change: "+0.02%", update: "Referential", desc: "Used for real estate finance and savings indices.", icon: DollarSign },
+  ];
+
+  const treasuryBonds = [
+    { code: "Tesouro Selic 2026", rate: "Selic + 0.04%", minInvestment: "R$ 143,20", type: "Post-fixed", maturity: "01/03/2026" },
+    { code: "Tesouro Selic 2029", rate: "Selic + 0.15%", minInvestment: "R$ 141,50", type: "Post-fixed", maturity: "01/03/2029" },
+    { code: "Tesouro IPCA+ 2029", rate: "IPCA + 6.18%", minInvestment: "R$ 3.120,40", type: "Hybrid", maturity: "15/05/2029" },
+    { code: "Tesouro IPCA+ 2035", rate: "IPCA + 6.22%", minInvestment: "R$ 2.450,10", type: "Hybrid", maturity: "15/05/2035" },
+    { code: "Tesouro Prefixado 2027", rate: "10.45% FIX", minInvestment: "R$ 750,00", type: "Fixed", maturity: "01/01/2027" },
+  ];
+
+  return (
+    <div className="space-y-8 animate-fade-in">
+      {/* Header */}
+      <div>
+        <h1 className="font-display text-3xl font-bold text-slate-900 tracking-tight">Market Benchmarks</h1>
+        <p className="text-sm text-slate-500 mt-1">Real-time fixed income yields and official macroeconomic reference indices.</p>
+      </div>
+
+      {/* Benchmark Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {benchmarks.map((b, idx) => {
+          const Icon = b.icon;
+          return (
+            <div key={idx} className="bg-white border border-slate-200 p-5 rounded-xl flex flex-col gap-2.5 shadow-sm hover:shadow-md transition-all">
+              <div className="flex justify-between items-center">
+                <span className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest">{b.name}</span>
+                <Icon className="w-4 h-4 text-emerald-500" />
+              </div>
+              <div>
+                <p className="font-display text-2xl font-bold text-slate-900">{b.rate}</p>
+                <p className="text-[10px] font-bold text-emerald-600 uppercase tracking-wider">{b.ppa}</p>
+              </div>
+              <div className="pt-2 border-t border-slate-50 flex items-center justify-between text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                <span>{b.update}</span>
+                <span className={b.change.startsWith("+") ? "text-rose-500" : b.change.startsWith("-") ? "text-emerald-500" : "text-slate-400"}>
+                  {b.change}
+                </span>
+              </div>
+              <p className="text-[11px] text-slate-500 leading-normal">{b.desc}</p>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Treasury Bonds Table */}
+      <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+        <div className="p-6 border-b border-slate-200 flex justify-between items-center bg-slate-50/50">
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="w-5 h-5 text-brand-primary" />
+            <h2 className="font-display text-lg font-bold text-slate-800">Direct Treasury Bonds (Tesouro Direto)</h2>
+          </div>
+          <div className="text-slate-400 text-xs font-sans font-bold uppercase tracking-wider">
+            Sovereign Debt Issuances
+          </div>
+        </div>
+
+        <div className="overflow-x-auto custom-scrollbar">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="bg-slate-50 border-b border-slate-200">
+                <th className="px-6 py-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider">Bond Code</th>
+                <th className="px-6 py-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Annual Yield Rate</th>
+                <th className="px-6 py-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Min. Investment</th>
+                <th className="px-6 py-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider">Type</th>
+                <th className="px-6 py-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider">Maturity Date</th>
+                <th className="px-6 py-4"></th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {treasuryBonds.map((bond, idx) => (
+                <tr key={idx} className="hover:bg-slate-50/30 transition-colors">
+                  <td className="px-6 py-4 font-sans text-sm font-bold text-slate-800">{bond.code}</td>
+                  <td className="px-6 py-4 font-mono text-sm text-right font-bold text-emerald-600">{bond.rate}</td>
+                  <td className="px-6 py-4 font-mono text-sm text-right text-slate-700 font-semibold">{bond.minInvestment}</td>
+                  <td className="px-6 py-4">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-600 uppercase">
+                      {bond.type}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 font-mono text-xs text-slate-500">{bond.maturity}</td>
+                  <td className="px-6 py-4 text-right">
+                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
