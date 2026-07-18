@@ -16,7 +16,7 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
   return (
     <aside className="hidden md:flex flex-col h-screen p-4 gap-4 border-r border-outline-variant bg-surface-card w-64 fixed left-0 top-0 z-20">
       <div className="mb-6 p-2">
-        <div className="font-display text-2xl font-bold text-primary">YieldWise</div>
+        <img src="/logo_jc.png" alt="YieldWise" className="h-12" />
         <div className="text-[10px] tracking-widest text-on-surface-variant font-bold uppercase mt-1">Investment Hub</div>
       </div>
 

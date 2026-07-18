@@ -40,7 +40,7 @@ export default function App() {
           <div className="relative flex w-full max-w-xs flex-col bg-white p-6 shadow-xl animate-slide-in">
             <div className="flex items-center justify-between pb-6 border-b border-slate-100">
               <div>
-                <div className="font-display text-2xl font-bold text-brand-primary">YieldWise</div>
+                <img src="/logo_jc.png" alt="YieldWise" className="h-10" />
                 <div className="text-[9px] tracking-widest text-slate-400 font-bold uppercase mt-1">Investment Hub</div>
               </div>
               <button
