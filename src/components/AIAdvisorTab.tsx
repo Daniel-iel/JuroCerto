@@ -299,14 +299,14 @@ export default function AIAdvisorTab() {
                       <div className="mb-1.5 w-full">
                         <button
                           onClick={() => toggleReasoning(m.id)}
-                          className="flex items-center gap-1 px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-[10px] font-bold tracking-wider text-slate-500 uppercase transition-all"
+                          className="flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-[10px] font-bold tracking-wider text-on-surface-variant uppercase transition-all"
                         >
-                          <Layers className="w-3.5 h-3.5 text-brand-primary" />
+                          <Layers className="w-3.5 h-3.5 text-primary" />
                           <span>{isExpanded ? "Hide Advisor Reasoning" : "Show Advisor Reasoning"}</span>
                         </button>
                         {isExpanded && (
-                          <div className="mt-1.5 p-3 rounded-lg bg-slate-50 border border-slate-100 font-mono text-[10.5px] text-slate-500 leading-relaxed max-w-full">
-                            <span className="text-emerald-600 font-bold block mb-1">
+                          <div className="mt-1.5 p-3 rounded-lg bg-surface-container border border-outline-variant font-mono text-[10.5px] text-on-surface-variant leading-relaxed max-w-full">
+                            <span className="text-primary font-bold block mb-1">
                               [AI Deep Thinking Process]
                             </span>
                             Analyzed portfolio values, interest rates, tax tables, and compared asset structures dynamically using Gemini pro preview reasoning mechanisms with high thinking level parameter.
@@ -318,15 +318,15 @@ export default function AIAdvisorTab() {
                     <div
                       className={`p-3.5 rounded-xl text-sm leading-relaxed ${
                         isAssistant
-                          ? "bg-slate-50 text-slate-800 rounded-tl-none border border-slate-100"
-                          : "bg-brand-primary text-white rounded-tr-none font-medium"
+                          ? "bg-surface-container text-on-surface rounded-tl-none border border-outline-variant"
+                          : "bg-primary text-on-primary rounded-tr-none font-medium"
                       }`}
                     >
                       {/* Standard Render (with support for basic formatting) */}
                       <p className="whitespace-pre-line">{m.content}</p>
                     </div>
 
-                    <span className="text-[9px] font-bold text-slate-400 mt-1 uppercase tracking-wider">
+                    <span className="text-[9px] font-bold text-on-surface-variant mt-1 uppercase tracking-wider">
                       {m.timestamp}
                     </span>
                   </div>
@@ -335,8 +335,8 @@ export default function AIAdvisorTab() {
 
               {isChatLoading && (
                 <div className="flex flex-col items-start gap-1 max-w-[80%]">
-                  <div className="flex items-center gap-2 p-3.5 rounded-xl bg-slate-50 text-slate-500 text-xs font-semibold rounded-tl-none border border-slate-100 animate-pulse">
-                    <RefreshCw className="w-3.5 h-3.5 text-emerald-500 animate-spin" />
+                  <div className="flex items-center gap-2 p-3.5 rounded-xl bg-surface-container text-on-surface-variant text-xs font-semibold rounded-tl-none border border-outline-variant animate-pulse">
+                    <RefreshCw className="w-3.5 h-3.5 text-primary animate-spin" />
                     <span>Deep Financial Reasoning Active...</span>
                   </div>
                 </div>
@@ -344,7 +344,7 @@ export default function AIAdvisorTab() {
             </div>
 
             {/* Input Bar */}
-            <div className="p-3 border-t border-slate-100 bg-slate-50/50 flex gap-2">
+            <div className="p-3 border-t border-outline-variant bg-surface-container/30 flex gap-2">
               <input
                 type="text"
                 placeholder="Ask about allocation, liquidity, inflation adjustments..."
@@ -353,12 +353,12 @@ export default function AIAdvisorTab() {
                 onKeyDown={(e) => {
                   if (e.key === "Enter") handleSendMessage();
                 }}
-                className="flex-grow px-4 py-2.5 border border-slate-200 rounded-lg outline-none bg-white text-sm focus:ring-2 focus:ring-brand-primary/10 focus:border-brand-primary"
+                className="flex-grow px-4 py-2.5 border border-outline-variant rounded-lg outline-none bg-surface-card text-sm focus:ring-2 focus:ring-primary/10 focus:border-primary"
               />
               <button
                 onClick={() => handleSendMessage()}
                 disabled={isChatLoading}
-                className="bg-brand-primary hover:bg-emerald-700 text-white p-2.5 rounded-lg transition-all shadow-sm active:scale-95 cursor-pointer disabled:opacity-50"
+                className="bg-primary hover:bg-primary-dark text-on-primary p-2.5 rounded-lg transition-all shadow-sm active:scale-95 cursor-pointer disabled:opacity-50"
               >
                 <Send className="w-4 h-4" />
               </button>
@@ -366,10 +366,10 @@ export default function AIAdvisorTab() {
           </div>
         ) : (
           /* STATEMENT SCANNER VIEW */
-          <div className="bg-white border border-slate-200 rounded-xl p-6 flex flex-col gap-6 shadow-sm min-h-[520px]">
-            <div className="flex justify-between items-center pb-3 border-b border-slate-100">
-              <h2 className="font-display text-base font-bold text-slate-800">Statement Vision Scanner</h2>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 bg-slate-100 px-2 py-0.5 rounded">
+          <div className="bg-surface-card border border-outline-variant rounded-xl p-6 flex flex-col gap-6 shadow-sm min-h-[520px]">
+            <div className="flex justify-between items-center pb-3 border-b border-outline-variant">
+              <h2 className="font-display text-base font-bold text-on-surface">Statement Vision Scanner</h2>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">
                 Gemini Vision
               </span>
             </div>
@@ -382,8 +382,8 @@ export default function AIAdvisorTab() {
               onClick={() => fileInputRef.current?.click()}
               className={`border-2 border-dashed rounded-xl p-8 flex flex-col items-center justify-center gap-3 cursor-pointer transition-all ${
                 isDragging
-                  ? "border-brand-primary bg-emerald-50/20 scale-[0.99]"
-                  : "border-slate-200 hover:border-brand-primary bg-slate-50/50 hover:bg-slate-50"
+                  ? "border-primary bg-primary/10 scale-[0.99]"
+                  : "border-outline-variant hover:border-primary bg-surface-container/50 hover:bg-surface-container"
               }`}
             >
               <input
@@ -403,22 +403,22 @@ export default function AIAdvisorTab() {
                   <img
                     src={selectedImage}
                     alt="Uploaded Statement Thumbnail"
-                    className="w-32 h-32 object-contain rounded-lg border border-slate-200 bg-white p-1 shadow-sm"
+                    className="w-32 h-32 object-contain rounded-lg border border-outline-variant bg-surface-card p-1 shadow-sm"
                   />
-                  <span className="text-xs font-bold text-emerald-600 flex items-center gap-1 mt-1">
+                  <span className="text-xs font-bold text-primary flex items-center gap-1 mt-1">
                     <Check className="w-4 h-4" /> Document Selected
                   </span>
                 </div>
               ) : (
                 <>
-                  <div className="p-3 bg-white rounded-full shadow-sm text-slate-500">
-                    <UploadCloud className="w-8 h-8 text-brand-primary" />
+                  <div className="p-3 bg-surface-card rounded-full shadow-sm text-on-surface-variant">
+                    <UploadCloud className="w-8 h-8 text-primary" />
                   </div>
                   <div className="text-center">
-                    <p className="text-sm font-bold text-slate-700">Drag &amp; Drop statement image here</p>
-                    <p className="text-xs text-slate-400 mt-0.5">or click to browse local storage</p>
+                    <p className="text-sm font-bold text-on-surface">Drag &amp; Drop statement image here</p>
+                    <p className="text-xs text-on-surface-variant mt-0.5">or click to browse local storage</p>
                   </div>
-                  <span className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">
+                  <span className="text-[10px] text-on-surface-variant font-semibold uppercase tracking-wider">
                     Supports PNG, JPG, or WEBP up to 10MB
                   </span>
                 </>
@@ -427,7 +427,7 @@ export default function AIAdvisorTab() {
 
             {/* Question Input */}
             <div className="space-y-2">
-              <label className="font-sans text-[10px] font-bold text-slate-500 uppercase tracking-widest block">
+              <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block">
                 Analysis Instruction
               </label>
               <textarea
@@ -435,7 +435,7 @@ export default function AIAdvisorTab() {
                 onChange={(e) => setImagePrompt(e.target.value)}
                 placeholder="Enter specific questions or instructions for the scanning engine (e.g., 'Verify management fees', 'Compare yields')..."
                 rows={3}
-                className="w-full border border-slate-200 rounded-lg p-3 text-sm outline-none resize-none focus:ring-2 focus:ring-brand-primary/10 focus:border-brand-primary bg-slate-50/30"
+                className="w-full border border-outline-variant rounded-lg p-3 text-sm outline-none resize-none focus:ring-2 focus:ring-primary/10 focus:border-primary bg-surface-container/30"
               />
             </div>
 
@@ -447,7 +447,7 @@ export default function AIAdvisorTab() {
                     setSelectedImage(null);
                     setScanResult(null);
                   }}
-                  className="px-4 py-2 border border-slate-300 text-slate-600 hover:bg-slate-50 font-bold text-xs uppercase tracking-wider rounded-lg transition-all"
+                  className="px-4 py-2 border border-outline-variant text-on-surface-variant hover:bg-surface-container font-bold text-xs uppercase tracking-wider rounded-lg transition-all"
                 >
                   Clear Image
                 </button>
@@ -455,7 +455,7 @@ export default function AIAdvisorTab() {
               <button
                 onClick={handleAnalyzeImage}
                 disabled={!selectedImage || isScanLoading}
-                className="flex-grow py-3 px-6 bg-brand-primary hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-all flex items-center justify-center gap-2 shadow-sm disabled:opacity-50 cursor-pointer"
+                className="flex-grow py-3 px-6 bg-primary hover:bg-primary-dark text-on-primary font-bold text-xs uppercase tracking-wider rounded-lg transition-all flex items-center justify-center gap-2 shadow-sm disabled:opacity-50 cursor-pointer"
               >
                 {isScanLoading ? (
                   <>
@@ -471,11 +471,11 @@ export default function AIAdvisorTab() {
 
             {/* Scanned Result */}
             {scanResult && (
-              <div className="bg-slate-50 border border-slate-100 rounded-xl p-5 space-y-3 animate-fade-in mt-2 max-h-[300px] overflow-y-auto custom-scrollbar">
-                <h3 className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1">
-                  <Check className="w-4 h-4 text-emerald-500" /> Scanned Insights Report
+              <div className="bg-surface-container border border-outline-variant rounded-xl p-5 space-y-3 animate-fade-in mt-2 max-h-[300px] overflow-y-auto custom-scrollbar">
+                <h3 className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest flex items-center gap-1">
+                  <Check className="w-4 h-4 text-primary" /> Scanned Insights Report
                 </h3>
-                <p className="text-xs text-slate-700 leading-relaxed whitespace-pre-wrap font-sans">
+                <p className="text-xs text-on-surface leading-relaxed whitespace-pre-wrap font-sans">
                   {scanResult}
                 </p>
               </div>

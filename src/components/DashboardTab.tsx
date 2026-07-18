@@ -14,32 +14,32 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
   // Market rate metrics
   const marketRates = [
     {
-      name: "SELIC Rate",
+      name: "Taxa SELIC",
       rate: "11.25%",
       unit: "a.a.",
       trend: "up",
       progressWidth: "85%",
-      description: "Target rate set by BCB (Central Bank)",
+      description: "Taxa alvo definida pelo BCB (Banco Central)",
       colorClass: "text-primary bg-primary",
       trendIcon: TrendingUp,
     },
     {
-      name: "IPCA (Inflation)",
+      name: "IPCA (Inflação)",
       rate: "4.62%",
       unit: "LTM",
       trend: "up",
       progressWidth: "45%",
-      description: "Consumer price index (IBGE), last 12 months",
+      description: "Índice de preços ao consumidor (IBGE), últimos 12 meses",
       colorClass: "text-error bg-error",
       trendIcon: TrendingUp,
     },
     {
-      name: "CDI Rate",
+      name: "Taxa CDI",
       rate: "11.15%",
       unit: "a.a.",
       trend: "neutral",
       progressWidth: "82%",
-      description: "Interbank benchmark rate, daily average",
+      description: "Taxa de referência interbancária, média diária",
       colorClass: "text-on-surface-variant bg-primary",
       trendIcon: HelpCircle,
     },
@@ -115,11 +115,11 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
       <section>
         <div className="flex justify-between items-end mb-4">
           <div>
-            <h2 className="font-display text-2xl font-bold text-on-surface">Market Pulse</h2>
-            <p className="text-sm text-on-surface-variant mt-0.5">Primary macroeconomic indicators used for Brazilian fixed-income calculations.</p>
+            <h2 className="font-display text-2xl font-bold text-on-surface">Pulso de Mercado</h2>
+            <p className="text-sm text-on-surface-variant mt-0.5">Indicadores macroeconômicos primários usados para cálculos de renda fixa brasileira.</p>
           </div>
           <span className="font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">
-            Updated: Today, 09:00 AM
+            Atualizado: Hoje, 09:00 AM
           </span>
         </div>
 
@@ -160,14 +160,14 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
         <section className="lg:col-span-8 bg-surface-card border border-outline-variant rounded-xl overflow-hidden flex flex-col shadow-sm">
           <div className="p-6 border-b border-outline-variant flex justify-between items-center bg-surface-container/50">
             <div>
-              <h3 className="font-display text-lg font-bold text-on-surface">Saved Yield Comparisons</h3>
-              <p className="text-xs text-on-surface-variant mt-0.5">Quick lookup of your simulated scenarios.</p>
+              <h3 className="font-display text-lg font-bold text-on-surface">Comparações de Rendimento Salvas</h3>
+              <p className="text-xs text-on-surface-variant mt-0.5">Consulta rápida de seus cenários simulados.</p>
             </div>
             <button
               onClick={() => onTabChange("comparisons")}
               className="bg-primary hover:bg-primary text-on-primary px-4 py-1.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-sm active:scale-95"
             >
-              New Comparison
+              Nova Comparação
             </button>
           </div>
           
@@ -175,10 +175,10 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
             <table className="w-full text-left border-collapse">
               <thead className="bg-surface-container border-b border-outline-variant">
                 <tr>
-                  <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">Asset Name</th>
-                  <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">Yield Type</th>
-                  <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider text-right">Proj. Yield</th>
-                  <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider text-right">Net Return</th>
+                  <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">Nome do Ativo</th>
+                  <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">Tipo de Rendimento</th>
+                  <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider text-right">Rendimento Proj.</th>
+                  <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider text-right">Retorno Líquido</th>
                   <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider text-center">Status</th>
                 </tr>
               </thead>
@@ -220,7 +220,7 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
               onClick={() => onTabChange("comparisons")}
               className="font-sans text-xs font-bold text-primary hover:text-primary transition-all uppercase tracking-widest flex items-center gap-1 cursor-pointer"
             >
-              View All Comparisons
+              Ver Todas as Comparações
             </button>
           </div>
         </section>
@@ -237,8 +237,8 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
           >
             <div className="z-10 flex flex-col gap-2">
               <Calculator className="w-8 h-8 text-surface-container-high" />
-              <h4 className="font-display text-lg font-bold">Compound Interest</h4>
-              <p className="text-xs text-surface-dim/90 leading-relaxed">Simulate long-term wealth growth with compound monthly contributions.</p>
+              <h4 className="font-display text-lg font-bold">Juros Compostos</h4>
+              <p className="text-xs text-surface-dim/90 leading-relaxed">Simule crescimento de riqueza a longo prazo com contribuções mensais compostas.</p>
             </div>
             <div className="absolute -bottom-6 -right-6 text-surface-dim/5 group-hover:scale-110 transition-transform duration-300">
               <TrendingUp className="w-32 h-32" />
@@ -255,9 +255,9 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
           >
             <Percent className="w-8 h-8 text-primary" />
             <h4 className="font-display text-base font-bold text-on-surface group-hover:text-primary">CDB vs LCI/LCA</h4>
-            <p className="text-xs text-on-surface-variant leading-relaxed">Calculate the gross CDI equivalent rate required to match a tax-free investment.</p>
+            <p className="text-xs text-on-surface-variant leading-relaxed">Calcule a taxa CDI bruta equivalente necessária para equiparar um investimento isento de impostos.</p>
             <div className="mt-2 flex items-center gap-1 text-primary font-sans text-xs font-bold uppercase tracking-wider">
-              Launch Calculator <ArrowRight className="w-3.5 h-3.5" />
+              Lançar Calculadora <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </div>
 
@@ -270,8 +270,8 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
             className="bg-surface-container-high text-on-surface p-6 rounded-xl flex flex-col gap-2 group cursor-pointer hover:bg-surface-container transition-all shadow-sm"
           >
             <ShieldCheck className="w-8 h-8 text-primary" />
-            <h4 className="font-display text-base font-bold">Inflation Adjustment</h4>
-            <p className="text-xs text-on-surface-variant leading-relaxed">See the real purchasing power of your yields over time relative to IPCA.</p>
+            <h4 className="font-display text-base font-bold">Ajuste pela Inflação</h4>
+            <p className="text-xs text-on-surface-variant leading-relaxed">Veja o poder de compra real de seus rendimentos ao longo do tempo em relação à IPCA.</p>
           </div>
         </div>
       </div>
@@ -280,21 +280,21 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
       <section className="bg-surface-card border border-outline-variant rounded-xl p-6 shadow-sm">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
           <div>
-            <h3 className="font-display text-lg font-bold text-on-surface">Yield Projection</h3>
-            <p className="text-xs text-on-surface-variant mt-0.5">Projected net return for the next 12 months based on your top saved comparisons.</p>
+            <h2 className="font-display text-2xl font-bold text-on-surface">Projeção de Rendimento</h2>
+            <p className="text-xs text-on-surface-variant mt-0.5">Retorno líquido projetado para os próximos 12 meses com base em suas principais comparações salvas.</p>
           </div>
           <div className="flex bg-surface-container p-1 rounded-lg gap-1 border border-outline-variant/50 self-end md:self-auto">
             <button 
               onClick={() => setProjectionPeriod("6m")}
               className={`px-4 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase transition-all cursor-pointer ${projectionPeriod === "6m" ? "bg-surface-card text-on-surface shadow-sm" : "text-on-surface-variant hover:text-on-surface"}`}
             >
-              6 Months
+              6 Meses
             </button>
             <button 
               onClick={() => setProjectionPeriod("1y")}
               className={`px-4 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase transition-all cursor-pointer ${projectionPeriod === "1y" ? "bg-surface-card text-on-surface shadow-sm" : "text-on-surface-variant hover:text-on-surface"}`}
             >
-              1 Year
+              1 Ano
             </button>
           </div>
         </div>

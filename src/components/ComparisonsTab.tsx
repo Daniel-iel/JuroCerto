@@ -193,21 +193,21 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
       {/* Page Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div>
-          <h1 className="font-display text-3xl font-bold text-on-surface tracking-tight">Asset Comparison</h1>
-          <p className="text-sm text-on-surface-variant mt-1">Simulate and analyze yield projections for multiple financial instruments.</p>
+          <h1 className="font-display text-3xl font-bold text-on-surface tracking-tight">Comparação de Ativos</h1>
+          <p className="text-sm text-on-surface-variant mt-1">Simule e analise projeções de rendimento para múltiplos instrumentos financeiros.</p>
         </div>
         <div className="flex gap-3 w-full md:w-auto">
           <button 
-            onClick={() => alert("Simulation report generated and sent to printing service!")}
+            onClick={() => alert("Relatório de simulação gerado e enviado para o serviço de impressão!")}  
             className="flex-1 md:flex-none px-4 py-2 border border-outline-variant text-on-surface bg-surface-card rounded-lg font-bold hover:bg-surface-container text-xs uppercase tracking-wider transition-all"
           >
-            Export PDF
+            Exportar PDF
           </button>
           <button 
-            onClick={() => alert("Portfolio comparison scenario saved to your Premium cloud dashboard!")}
+            onClick={() => alert("Cenário de comparação de portfólio salvo em seu painel na nuvem!")}  
             className="flex-1 md:flex-none px-4 py-2 bg-primary text-on-primary rounded-lg font-bold hover:opacity-90 text-xs uppercase tracking-wider transition-all shadow-sm"
           >
-            Save Scenario
+            Salvar Cenário
           </button>
         </div>
       </div>
@@ -219,13 +219,13 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
         <div className="lg:col-span-4 bg-surface-card border border-outline-variant rounded-xl p-6 flex flex-col gap-6 shadow-sm">
           <div className="flex items-center gap-2 pb-2 border-b border-outline-variant">
             <Sliders className="w-5 h-5 text-primary" />
-            <h2 className="font-display text-lg font-bold text-on-surface">Parameters</h2>
+            <h2 className="font-display text-lg font-bold text-on-surface">Parâmetros</h2>
           </div>
 
           <div className="space-y-5">
             <div>
               <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1.5">
-                Initial Investment
+                Investimento Inicial
               </label>
               <div className="relative">
                 <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-on-surface-variant font-bold">R$</span>
@@ -240,7 +240,7 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
 
             <div>
               <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1.5">
-                Monthly Contribution
+                Contribuição Mensal
               </label>
               <div className="relative">
                 <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-on-surface-variant font-bold">R$</span>
@@ -255,7 +255,7 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
 
             <div>
               <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1.5">
-                Horizon (Years)
+                Horizonte (Anos)
               </label>
               <div className="flex items-center gap-4">
                 <input
@@ -275,7 +275,7 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
 
           <div className="pt-4 border-t border-outline-variant space-y-3">
             <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block">
-              Compare Assets
+              Comparar Ativos
             </label>
             <div className="space-y-2 max-h-[160px] overflow-y-auto custom-scrollbar">
               {simulationResults.map((res) => (
@@ -306,7 +306,7 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
                   onClick={() => setShowAddAsset(!showAddAsset)}
                   className="w-full py-2 border border-dashed border-outline-variant hover:border-primary text-on-surface-variant hover:text-primary font-sans text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-surface-container transition-all flex items-center justify-center gap-1 cursor-pointer mt-1"
                 >
-                  <Plus className="w-4 h-4" /> Add Another Asset
+                  <Plus className="w-4 h-4" /> Adicionar Outro Ativo
                 </button>
                 {showAddAsset && (
                   <div className="absolute top-full left-0 right-0 mt-2 bg-surface-card border border-outline-variant rounded-lg shadow-lg overflow-hidden z-10">
@@ -331,7 +331,7 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
           <div className="flex justify-between items-center mb-6">
             <div className="flex items-center gap-2">
               <Eye className="w-5 h-5 text-primary" />
-              <h2 className="font-display text-lg font-bold text-on-surface">Yield Projection</h2>
+              <h2 className="font-display text-lg font-bold text-on-surface">Projeção de Rendimento</h2>
             </div>
             <div className="flex bg-surface-container p-1 rounded-lg gap-1 border border-outline-variant/50">
               <button
@@ -340,7 +340,7 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
                   chartValueType === "total" ? "bg-surface-card text-on-surface shadow-sm" : "text-on-surface-variant hover:text-on-surface"
                 }`}
               >
-                Total Value
+                Valor Total
               </button>
               <button
                 onClick={() => setChartValueType("net")}
@@ -348,7 +348,7 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
                   chartValueType === "net" ? "bg-surface-card text-on-surface shadow-sm" : "text-on-surface-variant hover:text-on-surface"
                 }`}
               >
-                Net Profit
+                Lucro Líquido
               </button>
             </div>
           </div>

@@ -8,10 +8,10 @@ interface SidebarProps {
 
 export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
   const menuItems = [
-    { id: "dashboard" as TabPage, label: "Dashboard", icon: LayoutDashboard },
-    { id: "comparisons" as TabPage, label: "Comparisons", icon: Percent },
-    { id: "calculators" as TabPage, label: "Calculators", icon: Calculator },
-    { id: "market-data" as TabPage, label: "Market Data", icon: TrendingUp },
+    { id: "dashboard" as TabPage, label: "Painel", icon: LayoutDashboard },
+    { id: "comparisons" as TabPage, label: "Comparações", icon: Percent },
+    { id: "calculators" as TabPage, label: "Calculadoras", icon: Calculator },
+    { id: "market-data" as TabPage, label: "Dados de Mercado", icon: TrendingUp },
   ];
 
   return (

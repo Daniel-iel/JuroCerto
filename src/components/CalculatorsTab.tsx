@@ -82,13 +82,13 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 animate-fade-in">
       {/* Side menu selection (4 cols) */}
-      <div className="lg:col-span-4 bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-4">
+      <div className="lg:col-span-4 bg-surface-card border border-outline-variant rounded-xl p-5 shadow-sm space-y-4">
         <div className="flex items-center gap-2">
-          <Calculator className="w-5 h-5 text-brand-primary" />
-          <h2 className="font-display text-lg font-bold text-slate-800">Calculators</h2>
+          <Calculator className="w-5 h-5 text-primary" />
+          <h2 className="font-display text-lg font-bold text-on-surface">Calculadoras</h2>
         </div>
-        <p className="text-xs text-slate-500 leading-relaxed">
-          Simulate standard financial equivalence models and interest compounding formulas.
+        <p className="text-xs text-on-surface-variant leading-relaxed">
+          Simule modelos padrão de equivalência financeira e fórmulas de juros compostos.
         </p>
 
         <div className="flex flex-col gap-2 pt-2">
@@ -96,53 +96,53 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
             onClick={() => setActiveCalc("compound")}
             className={`w-full py-3 px-4 rounded-xl text-left text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-3 ${
               activeCalc === "compound"
-                ? "bg-brand-primary text-white shadow-md shadow-brand-primary/10"
-                : "bg-slate-50 text-slate-700 border border-slate-100 hover:bg-slate-100"
+                ? "bg-primary text-on-primary shadow-md shadow-primary/10"
+                : "bg-surface-container text-on-surface-variant border border-outline-variant hover:bg-surface-container-high"
             }`}
           >
             <Calculator className="w-4 h-4" />
-            <span>Compound Interest</span>
+            <span>Juros Compostos</span>
           </button>
 
           <button
             onClick={() => setActiveCalc("equivalence")}
             className={`w-full py-3 px-4 rounded-xl text-left text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-3 ${
               activeCalc === "equivalence"
-                ? "bg-brand-primary text-white shadow-md shadow-brand-primary/10"
-                : "bg-slate-50 text-slate-700 border border-slate-100 hover:bg-slate-100"
+                ? "bg-primary text-on-primary shadow-md shadow-primary/10"
+                : "bg-surface-container text-on-surface-variant border border-outline-variant hover:bg-surface-container-high"
             }`}
           >
             <Percent className="w-4 h-4" />
-            <span>CDB vs LCI/LCA Tax Equivalent</span>
+            <span>CDB vs LCI/LCA Equivalente</span>
           </button>
 
           <button
             onClick={() => setActiveCalc("inflation")}
             className={`w-full py-3 px-4 rounded-xl text-left text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-3 ${
               activeCalc === "inflation"
-                ? "bg-brand-primary text-white shadow-md shadow-brand-primary/10"
-                : "bg-slate-50 text-slate-700 border border-slate-100 hover:bg-slate-100"
+                ? "bg-primary text-on-primary shadow-md shadow-primary/10"
+                : "bg-surface-container text-on-surface-variant border border-outline-variant hover:bg-surface-container-high"
             }`}
           >
             <ShieldCheck className="w-4 h-4" />
-            <span>Inflation Adjustment (IPCA)</span>
+            <span>Ajuste pela Inflação (IPCA)</span>
           </button>
         </div>
       </div>
 
       {/* Main math tool layout (8 cols) */}
-      <div className="lg:col-span-8 bg-white border border-slate-200 rounded-xl p-6 shadow-sm flex flex-col min-h-[460px]">
+      <div className="lg:col-span-8 bg-surface-card border border-outline-variant rounded-xl p-6 shadow-sm flex flex-col min-h-[460px]">
         
         {/* 1. COMPOUND INTEREST TOOL */}
         {activeCalc === "compound" && (
           <div className="space-y-6">
-            <h3 className="font-display text-base font-bold text-slate-800 border-b border-slate-100 pb-2">
-              Compound Interest Simulator
+            <h3 className="font-display text-base font-bold text-on-surface border-b border-outline-variant pb-2">
+              Simulador de Juros Compostos
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
-                  Initial Principal (R$)
+                  Capital Inicial (R$)
                 </label>
                 <input
                   type="number"
@@ -153,7 +153,7 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
               </div>
               <div>
                 <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
-                  Monthly Contribution (R$)
+                  Contribuição Mensal (R$)
                 </label>
                 <input
                   type="number"
@@ -164,7 +164,7 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
               </div>
               <div>
                 <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
-                  Annual Yield Rate (% p.a.)
+                  Taxa de Rendimento Anual (% a.a.)
                 </label>
                 <input
                   type="number"
@@ -176,7 +176,7 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
               </div>
               <div>
                 <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
-                  Horizon Period (Years)
+                  Período do Horizonte (Anos)
                 </label>
                 <input
                   type="number"
@@ -191,25 +191,25 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
               onClick={runCompoundSim}
               className="w-full py-2.5 bg-brand-primary text-white text-xs font-bold uppercase tracking-wider rounded-lg hover:opacity-90 transition-all shadow-sm active:scale-[0.99]"
             >
-              Calculate Compounding Yield
+              Calcular Rendimento Composto
             </button>
 
             {compoundResult && (
               <div className="bg-slate-50 border border-slate-100 rounded-xl p-5 space-y-3 animate-fade-in">
                 <h4 className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                  Simulation Results
+                  Resultados da Simulação
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-center">
                   <div className="p-3 bg-white rounded-lg border border-slate-100">
-                    <span className="text-[9px] font-bold text-slate-400 uppercase">Contributions</span>
+                    <span className="text-[9px] font-bold text-slate-400 uppercase">Contribuições</span>
                     <p className="text-sm font-bold text-slate-800 mt-1">{formatBrl(compoundResult.contributions)}</p>
                   </div>
                   <div className="p-3 bg-white rounded-lg border border-slate-100">
-                    <span className="text-[9px] font-bold text-emerald-600 uppercase">Yield Earnings</span>
+                    <span className="text-[9px] font-bold text-emerald-600 uppercase">Ganho de Rendimento</span>
                     <p className="text-sm font-bold text-emerald-600 mt-1">{formatBrl(compoundResult.interest)}</p>
                   </div>
                   <div className="p-3 bg-emerald-500 text-white rounded-lg border border-emerald-600">
-                    <span className="text-[9px] font-bold opacity-80 uppercase">Accumulated Total</span>
+                    <span className="text-[9px] font-bold opacity-80 uppercase">Total Acumulado</span>
                     <p className="text-base font-bold mt-1">{formatBrl(compoundResult.total)}</p>
                   </div>
                 </div>
@@ -222,12 +222,12 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
         {activeCalc === "equivalence" && (
           <div className="space-y-6">
             <h3 className="font-display text-base font-bold text-slate-800 border-b border-slate-100 pb-2">
-              CDB vs LCI/LCA Tax Equivalence Calculator
+              Calculadora de Equivalência Fiscal CDB vs LCI/LCA
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
-                  CDB Rate (% of CDI)
+                  Taxa de CDB (% do CDI)
                 </label>
                 <input
                   type="number"
@@ -238,7 +238,7 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
               </div>
               <div>
                 <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
-                  Base CDI (% p.a.)
+                  CDI Base (% a.a.)
                 </label>
                 <input
                   type="number"
