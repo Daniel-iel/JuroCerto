@@ -20,7 +20,7 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
       trend: "up",
       progressWidth: "85%",
       description: "Target rate set by BCB (Central Bank)",
-      colorClass: "text-emerald-500 bg-emerald-500",
+      colorClass: "text-primary bg-primary",
       trendIcon: TrendingUp,
     },
     {
@@ -30,7 +30,7 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
       trend: "up",
       progressWidth: "45%",
       description: "Consumer price index (IBGE), last 12 months",
-      colorClass: "text-rose-500 bg-rose-500",
+      colorClass: "text-error bg-error",
       trendIcon: TrendingUp,
     },
     {
@@ -40,7 +40,7 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
       trend: "neutral",
       progressWidth: "82%",
       description: "Interbank benchmark rate, daily average",
-      colorClass: "text-slate-500 bg-brand-primary",
+      colorClass: "text-on-surface-variant bg-primary",
       trendIcon: HelpCircle,
     },
   ];
@@ -50,42 +50,42 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
     {
       name: "CDB Banco Master",
       type: "POST-FIXED",
-      badgeClass: "bg-slate-100 text-slate-800",
+      badgeClass: "bg-surface-container-high text-on-surface",
       projYield: "118% CDI",
       netReturn: "R$ 1.240,45",
       status: "success",
       statusIcon: CheckCircle,
-      statusColor: "text-emerald-500",
+      statusColor: "text-primary",
     },
     {
       name: "Tesouro IPCA+ 2029",
       type: "HYBRID",
-      badgeClass: "bg-orange-100 text-orange-800",
+      badgeClass: "bg-surface-container-high text-on-surface",
       projYield: "IPCA + 6.2%",
       netReturn: "R$ 1.092,30",
       status: "updating",
       statusIcon: RefreshCw,
-      statusColor: "text-slate-400 animate-spin-slow",
+      statusColor: "text-on-surface-variant animate-spin-slow",
     },
     {
       name: "LCI Imobiliário Itaú",
       type: "TAX-FREE",
-      badgeClass: "bg-emerald-100 text-emerald-800",
+      badgeClass: "bg-surface-container-high text-on-surface",
       projYield: "92% CDI",
       netReturn: "R$ 1.150,00",
       status: "success",
       statusIcon: CheckCircle,
-      statusColor: "text-emerald-500",
+      statusColor: "text-primary",
     },
     {
       name: "CRA Agronegócio",
       type: "TAX-FREE",
-      badgeClass: "bg-emerald-100 text-emerald-800",
+      badgeClass: "bg-surface-container-high text-on-surface",
       projYield: "10.5% FIX",
       netReturn: "R$ 1.050,00",
       status: "warning",
       statusIcon: AlertTriangle,
-      statusColor: "text-rose-500",
+      statusColor: "text-error",
     },
   ];
 
@@ -115,10 +115,10 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
       <section>
         <div className="flex justify-between items-end mb-4">
           <div>
-            <h2 className="font-display text-2xl font-bold text-slate-900">Market Pulse</h2>
-            <p className="text-sm text-slate-500 mt-0.5">Primary macroeconomic indicators used for Brazilian fixed-income calculations.</p>
+            <h2 className="font-display text-2xl font-bold text-on-surface">Market Pulse</h2>
+            <p className="text-sm text-on-surface-variant mt-0.5">Primary macroeconomic indicators used for Brazilian fixed-income calculations.</p>
           </div>
-          <span className="font-sans text-xs font-bold text-slate-500 uppercase tracking-wider">
+          <span className="font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">
             Updated: Today, 09:00 AM
           </span>
         </div>
@@ -129,24 +129,24 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
             return (
               <div
                 key={idx}
-                className="bg-white border border-slate-200 p-6 rounded-xl flex flex-col gap-3 transition-all hover:shadow-md"
+                className="bg-surface-card border border-outline-variant p-6 rounded-xl flex flex-col gap-3 transition-all hover:shadow-md"
               >
                 <div className="flex justify-between items-start">
-                  <span className="font-sans text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <span className="font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">
                     {rate.name}
                   </span>
-                  <Icon className={`w-4 h-4 ${rate.trend === "up" ? "text-emerald-500" : "text-slate-400"}`} />
+                  <Icon className={`w-4 h-4 ${rate.trend === "up" ? "text-primary" : "text-on-surface-variant"}`} />
                 </div>
                 <div className="flex items-baseline gap-1">
-                  <span className="font-display text-4xl font-bold text-slate-900">{rate.rate}</span>
-                  <span className="font-sans text-xs font-bold text-slate-500 uppercase tracking-wider">
+                  <span className="font-display text-4xl font-bold text-on-surface">{rate.rate}</span>
+                  <span className="font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">
                     {rate.unit}
                   </span>
                 </div>
-                <div className="mt-1 h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                  <div className={`h-full ${rate.colorClass === "text-rose-500 bg-rose-500" ? "bg-rose-500" : "bg-emerald-500"}`} style={{ width: rate.progressWidth }}></div>
+                <div className="mt-1 h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+                  <div className={`h-full ${rate.colorClass === "text-error bg-error" ? "bg-error" : "bg-primary"}`} style={{ width: rate.progressWidth }}></div>
                 </div>
-                <p className="text-xs text-slate-500 mt-1">{rate.description}</p>
+                <p className="text-xs text-on-surface-variant mt-1">{rate.description}</p>
               </div>
             );
           })}
@@ -157,15 +157,15 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
         {/* Saved Comparisons (Main Bento Tile) */}
-        <section className="lg:col-span-8 bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col shadow-sm">
-          <div className="p-6 border-b border-slate-200 flex justify-between items-center bg-slate-50/50">
+        <section className="lg:col-span-8 bg-surface-card border border-outline-variant rounded-xl overflow-hidden flex flex-col shadow-sm">
+          <div className="p-6 border-b border-outline-variant flex justify-between items-center bg-surface-container/50">
             <div>
-              <h3 className="font-display text-lg font-bold text-slate-900">Saved Yield Comparisons</h3>
-              <p className="text-xs text-slate-500 mt-0.5">Quick lookup of your simulated scenarios.</p>
+              <h3 className="font-display text-lg font-bold text-on-surface">Saved Yield Comparisons</h3>
+              <p className="text-xs text-on-surface-variant mt-0.5">Quick lookup of your simulated scenarios.</p>
             </div>
             <button
               onClick={() => onTabChange("comparisons")}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-1.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-sm active:scale-95"
+              className="bg-primary hover:bg-primary text-on-primary px-4 py-1.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-sm active:scale-95"
             >
               New Comparison
             </button>
@@ -173,25 +173,25 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
           
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
-              <thead className="bg-slate-50 border-b border-slate-200">
+              <thead className="bg-surface-container border-b border-outline-variant">
                 <tr>
-                  <th className="p-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider">Asset Name</th>
-                  <th className="p-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider">Yield Type</th>
-                  <th className="p-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Proj. Yield</th>
-                  <th className="p-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Net Return</th>
-                  <th className="p-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Status</th>
+                  <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">Asset Name</th>
+                  <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">Yield Type</th>
+                  <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider text-right">Proj. Yield</th>
+                  <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider text-right">Net Return</th>
+                  <th className="p-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider text-center">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-outline-variant">
                 {savedComparisons.map((row, idx) => {
                   const StatusIcon = row.statusIcon;
                   return (
                     <tr 
                       key={idx} 
                       onClick={() => onTabChange("comparisons")}
-                      className="hover:bg-slate-50/70 transition-colors cursor-pointer group"
+                      className="hover:bg-surface-container/70 transition-colors cursor-pointer group"
                     >
-                      <td className="p-4 font-sans text-sm font-bold text-slate-800 group-hover:text-brand-primary">
+                      <td className="p-4 font-sans text-sm font-bold text-on-surface group-hover:text-primary">
                         {row.name}
                       </td>
                       <td className="p-4">
@@ -199,10 +199,10 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
                           {row.type}
                         </span>
                       </td>
-                      <td className="p-4 font-mono text-sm text-right text-emerald-600 font-semibold">
+                      <td className="p-4 font-mono text-sm text-right text-primary font-semibold">
                         {row.projYield}
                       </td>
-                      <td className="p-4 font-mono text-sm text-right font-medium text-slate-700">
+                      <td className="p-4 font-mono text-sm text-right font-medium text-on-surface">
                         {row.netReturn}
                       </td>
                       <td className="p-4 text-center flex justify-center">
@@ -215,10 +215,10 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
             </table>
           </div>
           
-          <div className="p-4 bg-white border-t border-slate-100 mt-auto flex justify-center">
+          <div className="p-4 bg-surface-card border-t border-outline-variant mt-auto flex justify-center">
             <button
               onClick={() => onTabChange("comparisons")}
-              className="font-sans text-xs font-bold text-brand-primary hover:text-emerald-700 transition-all uppercase tracking-widest flex items-center gap-1 cursor-pointer"
+              className="font-sans text-xs font-bold text-primary hover:text-primary transition-all uppercase tracking-widest flex items-center gap-1 cursor-pointer"
             >
               View All Comparisons
             </button>
@@ -233,14 +233,14 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
               if (onSelectCalculator) onSelectCalculator("compound");
               onTabChange("calculators");
             }}
-            className="bg-brand-primary text-white p-6 rounded-xl relative overflow-hidden flex flex-col gap-2 group cursor-pointer hover:shadow-lg transition-all"
+            className="bg-primary text-on-primary p-6 rounded-xl relative overflow-hidden flex flex-col gap-2 group cursor-pointer hover:shadow-lg transition-all"
           >
             <div className="z-10 flex flex-col gap-2">
-              <Calculator className="w-8 h-8 text-emerald-300" />
+              <Calculator className="w-8 h-8 text-surface-container-high" />
               <h4 className="font-display text-lg font-bold">Compound Interest</h4>
-              <p className="text-xs text-emerald-100/90 leading-relaxed">Simulate long-term wealth growth with compound monthly contributions.</p>
+              <p className="text-xs text-surface-dim/90 leading-relaxed">Simulate long-term wealth growth with compound monthly contributions.</p>
             </div>
-            <div className="absolute -bottom-6 -right-6 text-white/5 group-hover:scale-110 transition-transform duration-300">
+            <div className="absolute -bottom-6 -right-6 text-surface-dim/5 group-hover:scale-110 transition-transform duration-300">
               <TrendingUp className="w-32 h-32" />
             </div>
           </div>
@@ -251,12 +251,12 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
               if (onSelectCalculator) onSelectCalculator("equivalence");
               onTabChange("calculators");
             }}
-            className="bg-white border border-slate-200 hover:border-brand-primary p-6 rounded-xl flex flex-col gap-2 group cursor-pointer transition-all hover:shadow-md"
+            className="bg-surface-card border border-outline-variant hover:border-primary p-6 rounded-xl flex flex-col gap-2 group cursor-pointer transition-all hover:shadow-md"
           >
-            <Percent className="w-8 h-8 text-emerald-600" />
-            <h4 className="font-display text-base font-bold text-slate-900 group-hover:text-brand-primary">CDB vs LCI/LCA</h4>
-            <p className="text-xs text-slate-500 leading-relaxed">Calculate the gross CDI equivalent rate required to match a tax-free investment.</p>
-            <div className="mt-2 flex items-center gap-1 text-emerald-600 font-sans text-xs font-bold uppercase tracking-wider">
+            <Percent className="w-8 h-8 text-primary" />
+            <h4 className="font-display text-base font-bold text-on-surface group-hover:text-primary">CDB vs LCI/LCA</h4>
+            <p className="text-xs text-on-surface-variant leading-relaxed">Calculate the gross CDI equivalent rate required to match a tax-free investment.</p>
+            <div className="mt-2 flex items-center gap-1 text-primary font-sans text-xs font-bold uppercase tracking-wider">
               Launch Calculator <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </div>
@@ -267,32 +267,32 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
               if (onSelectCalculator) onSelectCalculator("inflation");
               onTabChange("calculators");
             }}
-            className="bg-finance-dark text-white p-6 rounded-xl flex flex-col gap-2 group cursor-pointer hover:bg-slate-900 transition-all shadow-sm"
+            className="bg-surface-container-high text-on-surface p-6 rounded-xl flex flex-col gap-2 group cursor-pointer hover:bg-surface-container transition-all shadow-sm"
           >
-            <ShieldCheck className="w-8 h-8 text-emerald-400" />
+            <ShieldCheck className="w-8 h-8 text-primary" />
             <h4 className="font-display text-base font-bold">Inflation Adjustment</h4>
-            <p className="text-xs text-slate-300 leading-relaxed">See the real purchasing power of your yields over time relative to IPCA.</p>
+            <p className="text-xs text-on-surface-variant leading-relaxed">See the real purchasing power of your yields over time relative to IPCA.</p>
           </div>
         </div>
       </div>
 
       {/* Section 3: Yield Projection Visualizer */}
-      <section className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+      <section className="bg-surface-card border border-outline-variant rounded-xl p-6 shadow-sm">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
           <div>
-            <h3 className="font-display text-lg font-bold text-slate-900">Yield Projection</h3>
-            <p className="text-xs text-slate-500 mt-0.5">Projected net return for the next 12 months based on your top saved comparisons.</p>
+            <h3 className="font-display text-lg font-bold text-on-surface">Yield Projection</h3>
+            <p className="text-xs text-on-surface-variant mt-0.5">Projected net return for the next 12 months based on your top saved comparisons.</p>
           </div>
-          <div className="flex bg-slate-100 p-1 rounded-lg gap-1 border border-slate-200/50 self-end md:self-auto">
+          <div className="flex bg-surface-container p-1 rounded-lg gap-1 border border-outline-variant/50 self-end md:self-auto">
             <button 
               onClick={() => setProjectionPeriod("6m")}
-              className={`px-4 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase transition-all cursor-pointer ${projectionPeriod === "6m" ? "bg-white text-slate-800 shadow-sm" : "text-slate-500 hover:text-slate-800"}`}
+              className={`px-4 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase transition-all cursor-pointer ${projectionPeriod === "6m" ? "bg-surface-card text-on-surface shadow-sm" : "text-on-surface-variant hover:text-on-surface"}`}
             >
               6 Months
             </button>
             <button 
               onClick={() => setProjectionPeriod("1y")}
-              className={`px-4 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase transition-all cursor-pointer ${projectionPeriod === "1y" ? "bg-white text-slate-800 shadow-sm" : "text-slate-500 hover:text-slate-800"}`}
+              className={`px-4 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase transition-all cursor-pointer ${projectionPeriod === "1y" ? "bg-surface-card text-on-surface shadow-sm" : "text-on-surface-variant hover:text-on-surface"}`}
             >
               1 Year
             </button>

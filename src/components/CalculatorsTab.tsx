@@ -306,23 +306,23 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
         {/* 3. INFLATION TOOL */}
         {activeCalc === "inflation" && (
           <div className="space-y-6">
-            <h3 className="font-display text-base font-bold text-slate-800 border-b border-slate-100 pb-2">
+            <h3 className="font-display text-base font-bold text-on-surface border-b border-outline-variant pb-2">
               Inflation Adjustment Simulator (IPCA)
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
+                <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">
                   Nominal Capital Amount (R$)
                 </label>
                 <input
                   type="number"
                   value={nominalAmount}
                   onChange={(e) => setNominalAmount(parseFloat(e.target.value) || 0)}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm font-semibold text-slate-800 font-mono"
+                  className="w-full px-3 py-2 border border-outline-variant rounded-lg text-sm font-semibold text-on-surface font-mono"
                 />
               </div>
               <div>
-                <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
+                <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">
                   Projected IPCA Rate (% p.a.)
                 </label>
                 <input
@@ -330,42 +330,42 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
                   step="0.01"
                   value={inflationRate}
                   onChange={(e) => setInflationRate(parseFloat(e.target.value) || 0)}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm font-semibold text-slate-800 font-mono"
+                  className="w-full px-3 py-2 border border-outline-variant rounded-lg text-sm font-semibold text-on-surface font-mono"
                 />
               </div>
               <div>
-                <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
+                <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">
                   Time Period (Years)
                 </label>
                 <input
                   type="number"
                   value={inflationYears}
                   onChange={(e) => setInflationYears(parseInt(e.target.value) || 0)}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm font-semibold text-slate-800 font-mono"
+                  className="w-full px-3 py-2 border border-outline-variant rounded-lg text-sm font-semibold text-on-surface font-mono"
                 />
               </div>
             </div>
 
             <button
               onClick={runInflationSim}
-              className="w-full py-2.5 bg-brand-primary text-white text-xs font-bold uppercase tracking-wider rounded-lg hover:opacity-90 transition-all shadow-sm active:scale-[0.99]"
+              className="w-full py-2.5 bg-primary text-on-primary text-xs font-bold uppercase tracking-wider rounded-lg hover:opacity-90 transition-all shadow-sm active:scale-[0.99]"
             >
               Run Purchasing Power Discount
             </button>
 
             {inflationResult && (
-              <div className="bg-slate-50 border border-slate-100 rounded-xl p-5 space-y-3 animate-fade-in">
-                <h4 className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              <div className="bg-surface-container border border-outline-variant rounded-xl p-5 space-y-3 animate-fade-in">
+                <h4 className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
                   Inflation Adjusted Outcomes
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-center">
-                  <div className="p-4 bg-white rounded-lg border border-slate-100">
-                    <span className="text-[9px] font-bold text-slate-400 uppercase">Purchasing Power Loss</span>
-                    <p className="text-lg font-bold text-rose-600 mt-1">{formatBrl(inflationResult.loss)}</p>
+                  <div className="p-4 bg-surface-card rounded-lg border border-outline-variant">
+                    <span className="text-[9px] font-bold text-on-surface-variant uppercase">Purchasing Power Loss</span>
+                    <p className="text-lg font-bold text-error mt-1">{formatBrl(inflationResult.loss)}</p>
                   </div>
-                  <div className="p-4 bg-white rounded-lg border border-slate-100">
-                    <span className="text-[9px] font-bold text-emerald-600 uppercase">Real Future Value</span>
-                    <p className="text-lg font-bold text-emerald-600 mt-1">{formatBrl(inflationResult.realValue)}</p>
+                  <div className="p-4 bg-surface-card rounded-lg border border-outline-variant">
+                    <span className="text-[9px] font-bold text-primary uppercase">Real Future Value</span>
+                    <p className="text-lg font-bold text-primary mt-1">{formatBrl(inflationResult.realValue)}</p>
                   </div>
                 </div>
               </div>

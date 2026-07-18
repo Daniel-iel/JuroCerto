@@ -1,22 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Hanken Grotesk", sans-serif;
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Geist", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-brand-primary: #006c50;
-  --color-brand-on-primary: #ffffff;
-  --color-brand-primary-container: #00c897;
-  --color-brand-on-primary-container: #004d38;
-  --color-finance-success: #00C897;
-  --color-finance-neutral: #535353;
-  --color-finance-dark: #0F172A;
-  --color-brand-tertiary: #9a451f;
-  --color-brand-secondary: #5e5e5e;
+  /* Deep Tech Performance - Color System */
+  /* Background & Surface Layer */
+  --color-background-deep: #0a0a0a;
+  --color-background-base: #0a0a0a;
+  --color-surface-base: #15181e;
+  --color-surface-container: #1d2026;
+  --color-surface-container-high: #272a30;
+  --color-surface-container-highest: #32353b;
+  --color-surface-card: #1a1d23;
+  
+  /* Primary Color Teal - Interactive & State */
+  --color-primary: #14c6cb;
+  --color-primary-bright: #4ae2e7;
+  --color-on-primary: #000000;
+  
+  /* Secondary Color Yellow - Alerts & Attention */
+  --color-secondary: #ffcf25;
+  --color-secondary-bright: #ffd969;
+  --color-secondary-light: #ffe089;
+  --color-on-secondary: #000000;
+  
+  /* Tertiary & Utility Colors */
+  --color-tertiary: #64b5f6;
+  --color-error: #ef5350;
+  --color-success: #26a69a;
+  --color-warning: #ffb74d;
+  
+  /* Text Colors */
+  --color-on-surface: #e0e0e0;
+  --color-on-surface-variant: #9e9e9e;
+  --color-on-dark: #ffffff;
+  
+  /* Outline & Border */
+  --color-outline: #424242;
+  --color-outline-variant: #2c2c2c;
+  
+  /* Legacy Brand Support */
+  --color-brand-primary: #4ae2e7;
+  --color-brand-secondary: #ffd969;
 }
 
-/* Custom styles for professional scrollbars */
+/* Scrollbar styling */
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -25,9 +56,125 @@
   background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #424242;
   border-radius: 9999px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #616161;
+}
+
+/* Global Styles */
+@layer base {
+  body {
+    @apply bg-background-deep text-on-surface;
+  }
+}
+
+/* Utility Classes for Typography */
+@layer utilities {
+  .headline-lg {
+    @apply text-3xl font-semibold leading-tight;
+  }
+  
+  .headline-lg-mobile {
+    @apply text-2xl font-semibold leading-tight;
+  }
+  
+  .headline-md {
+    @apply text-xl font-semibold leading-tight;
+  }
+  
+  .headline-sm {
+    @apply text-lg font-semibold leading-tight;
+  }
+  
+  .body-lg {
+    @apply text-base font-normal leading-relaxed;
+  }
+  
+  .body-md {
+    @apply text-sm font-normal leading-relaxed;
+  }
+  
+  .body-sm {
+    @apply text-xs font-normal leading-relaxed;
+  }
+  
+  .label-md {
+    @apply text-xs font-semibold uppercase tracking-widest;
+  }
+  
+  .label-sm {
+    @apply text-xs font-semibold uppercase tracking-widest;
+  }
+  
+  .code-sm {
+    @apply text-xs font-mono leading-relaxed;
+  }
+}
+
+/* Component Utility Classes */
+@layer components {
+  .card {
+    @apply bg-surface-card border border-outline-variant rounded-lg p-5;
+  }
+  
+  .card-elevated {
+    @apply bg-surface-container border border-outline-variant rounded-lg p-5 shadow-lg;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-2 bg-primary text-on-primary rounded-lg font-semibold hover:bg-primary-bright transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-2 bg-transparent border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-on-primary transition-colors;
+  }
+  
+  .btn-ghost {
+    @apply px-6 py-2 bg-transparent text-on-surface rounded-lg font-semibold hover:bg-surface-container transition-colors;
+  }
+  
+  .btn-danger {
+    @apply px-6 py-2 bg-error text-on-primary rounded-lg font-semibold hover:opacity-90 transition-opacity;
+  }
+  
+  .input-field {
+    @apply px-4 py-2 bg-surface-container border border-outline-variant rounded-lg text-on-surface placeholder-on-surface-variant focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/50 transition-colors;
+  }
+  
+  .input-field:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+  
+  .table-row {
+    @apply border-b border-outline-variant hover:bg-surface-container-high transition-colors;
+  }
+  
+  .table-header {
+    @apply bg-surface-container-high border-b border-outline-variant font-semibold text-on-surface-variant;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-secondary text-on-secondary;
+  }
+  
+  .badge-outline {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-transparent border border-secondary text-secondary;
+  }
+  
+  .badge-success {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-success text-on-secondary;
+  }
+  
+  .badge-error {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-error text-on-secondary;
+  }
+}
+
+/* Scrollbar styling */
+@layer utilities {
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
 }

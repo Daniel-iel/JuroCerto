@@ -193,19 +193,19 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
       {/* Page Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
         <div>
-          <h1 className="font-display text-3xl font-bold text-slate-900 tracking-tight">Asset Comparison</h1>
-          <p className="text-sm text-slate-500 mt-1">Simulate and analyze yield projections for multiple financial instruments.</p>
+          <h1 className="font-display text-3xl font-bold text-on-surface tracking-tight">Asset Comparison</h1>
+          <p className="text-sm text-on-surface-variant mt-1">Simulate and analyze yield projections for multiple financial instruments.</p>
         </div>
         <div className="flex gap-3 w-full md:w-auto">
           <button 
             onClick={() => alert("Simulation report generated and sent to printing service!")}
-            className="flex-1 md:flex-none px-4 py-2 border border-slate-300 text-slate-700 bg-white rounded-lg font-bold hover:bg-slate-50 text-xs uppercase tracking-wider transition-all"
+            className="flex-1 md:flex-none px-4 py-2 border border-outline-variant text-on-surface bg-surface-card rounded-lg font-bold hover:bg-surface-container text-xs uppercase tracking-wider transition-all"
           >
             Export PDF
           </button>
           <button 
             onClick={() => alert("Portfolio comparison scenario saved to your Premium cloud dashboard!")}
-            className="flex-1 md:flex-none px-4 py-2 bg-brand-primary-container text-white rounded-lg font-bold hover:opacity-90 text-xs uppercase tracking-wider transition-all shadow-sm"
+            className="flex-1 md:flex-none px-4 py-2 bg-primary text-on-primary rounded-lg font-bold hover:opacity-90 text-xs uppercase tracking-wider transition-all shadow-sm"
           >
             Save Scenario
           </button>
@@ -216,45 +216,45 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
         {/* Config/Parameters Card (4 cols) */}
-        <div className="lg:col-span-4 bg-white border border-slate-200 rounded-xl p-6 flex flex-col gap-6 shadow-sm">
-          <div className="flex items-center gap-2 pb-2 border-b border-slate-100">
-            <Sliders className="w-5 h-5 text-brand-primary" />
-            <h2 className="font-display text-lg font-bold text-slate-800">Parameters</h2>
+        <div className="lg:col-span-4 bg-surface-card border border-outline-variant rounded-xl p-6 flex flex-col gap-6 shadow-sm">
+          <div className="flex items-center gap-2 pb-2 border-b border-outline-variant">
+            <Sliders className="w-5 h-5 text-primary" />
+            <h2 className="font-display text-lg font-bold text-on-surface">Parameters</h2>
           </div>
 
           <div className="space-y-5">
             <div>
-              <label className="font-sans text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-1.5">
+              <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1.5">
                 Initial Investment
               </label>
               <div className="relative">
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-slate-400 font-bold">R$</span>
+                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-on-surface-variant font-bold">R$</span>
                 <input
                   type="text"
                   value={initialInvestmentRaw}
                   onChange={(e) => handleInitialChange(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary/10 focus:border-brand-primary outline-none transition-all font-mono text-sm font-semibold text-slate-800"
+                  className="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/10 focus:border-primary outline-none transition-all font-mono text-sm font-semibold text-on-surface"
                 />
               </div>
             </div>
 
             <div>
-              <label className="font-sans text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-1.5">
+              <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1.5">
                 Monthly Contribution
               </label>
               <div className="relative">
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-slate-400 font-bold">R$</span>
+                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-on-surface-variant font-bold">R$</span>
                 <input
                   type="text"
                   value={monthlyContributionRaw}
                   onChange={(e) => handleMonthlyChange(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-primary/10 focus:border-brand-primary outline-none transition-all font-mono text-sm font-semibold text-slate-800"
+                  className="w-full pl-10 pr-4 py-2.5 border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary/10 focus:border-primary outline-none transition-all font-mono text-sm font-semibold text-on-surface"
                 />
               </div>
             </div>
 
             <div>
-              <label className="font-sans text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-1.5">
+              <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1.5">
                 Horizon (Years)
               </label>
               <div className="flex items-center gap-4">
@@ -264,33 +264,33 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
                   max="30"
                   value={settings.horizonYears}
                   onChange={(e) => setSettings((prev) => ({ ...prev, horizonYears: parseInt(e.target.value) }))}
-                  className="flex-grow h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+                  className="flex-grow h-2 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary"
                 />
-                <span className="font-display text-xl font-bold text-brand-primary w-8 text-right">
+                <span className="font-display text-xl font-bold text-primary w-8 text-right">
                   {settings.horizonYears}
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="pt-4 border-t border-slate-100 space-y-3">
-            <label className="font-sans text-[10px] font-bold text-slate-500 uppercase tracking-widest block">
+          <div className="pt-4 border-t border-outline-variant space-y-3">
+            <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block">
               Compare Assets
             </label>
             <div className="space-y-2 max-h-[160px] overflow-y-auto custom-scrollbar">
               {simulationResults.map((res) => (
                 <div
                   key={res.templateId}
-                  className="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-100 hover:border-slate-200 transition-all"
+                  className="flex items-center justify-between p-2.5 rounded-lg bg-surface-container border border-outline-variant hover:border-primary transition-all"
                 >
                   <div className="flex items-center gap-2">
                     <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: res.color }}></div>
-                    <span className="text-xs font-bold text-slate-800">{res.name}</span>
+                    <span className="text-xs font-bold text-on-surface">{res.name}</span>
                   </div>
                   {simulationResults.length > 1 && (
                     <button
                       onClick={() => removeAsset(res.templateId)}
-                      className="text-slate-400 hover:text-rose-500 transition-colors p-0.5 rounded"
+                      className="text-on-surface-variant hover:text-error transition-colors p-0.5 rounded"
                       title="Remove asset"
                     >
                       <X className="w-3.5 h-3.5" />
@@ -304,17 +304,17 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
               <div className="relative">
                 <button
                   onClick={() => setShowAddAsset(!showAddAsset)}
-                  className="w-full py-2 border border-dashed border-slate-300 hover:border-brand-primary text-slate-500 hover:text-brand-primary font-sans text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-slate-50 transition-all flex items-center justify-center gap-1 cursor-pointer mt-1"
+                  className="w-full py-2 border border-dashed border-outline-variant hover:border-primary text-on-surface-variant hover:text-primary font-sans text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-surface-container transition-all flex items-center justify-center gap-1 cursor-pointer mt-1"
                 >
                   <Plus className="w-4 h-4" /> Add Another Asset
                 </button>
                 {showAddAsset && (
-                  <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden z-10">
+                  <div className="absolute top-full left-0 right-0 mt-2 bg-surface-card border border-outline-variant rounded-lg shadow-lg overflow-hidden z-10">
                     {availableTemplates.map((item) => (
                       <button
                         key={item.id}
                         onClick={() => addAsset(item.id)}
-                        className="w-full text-left px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-primary border-b border-slate-100 last:border-0 transition-all"
+                        className="w-full text-left px-4 py-2 text-xs font-semibold text-on-surface hover:bg-surface-container hover:text-primary border-b border-outline-variant last:border-0 transition-all"
                       >
                         {item.name} ({item.rateLabel})
                       </button>
@@ -327,17 +327,17 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
         </div>
 
         {/* Chart Card (8 cols) */}
-        <div className="lg:col-span-8 bg-white border border-slate-200 rounded-xl p-6 flex flex-col shadow-sm relative">
+        <div className="lg:col-span-8 bg-surface-card border border-outline-variant rounded-xl p-6 flex flex-col shadow-sm relative">
           <div className="flex justify-between items-center mb-6">
             <div className="flex items-center gap-2">
-              <Eye className="w-5 h-5 text-brand-primary" />
-              <h2 className="font-display text-lg font-bold text-slate-800">Yield Projection</h2>
+              <Eye className="w-5 h-5 text-primary" />
+              <h2 className="font-display text-lg font-bold text-on-surface">Yield Projection</h2>
             </div>
-            <div className="flex bg-slate-100 p-1 rounded-lg gap-1 border border-slate-200/50">
+            <div className="flex bg-surface-container p-1 rounded-lg gap-1 border border-outline-variant/50">
               <button
                 onClick={() => setChartValueType("total")}
                 className={`px-3 py-1 rounded-md text-[9px] font-bold tracking-wider uppercase transition-all cursor-pointer ${
-                  chartValueType === "total" ? "bg-white text-slate-800 shadow-sm" : "text-slate-500 hover:text-slate-800"
+                  chartValueType === "total" ? "bg-surface-card text-on-surface shadow-sm" : "text-on-surface-variant hover:text-on-surface"
                 }`}
               >
                 Total Value
@@ -345,7 +345,7 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
               <button
                 onClick={() => setChartValueType("net")}
                 className={`px-3 py-1 rounded-md text-[9px] font-bold tracking-wider uppercase transition-all cursor-pointer ${
-                  chartValueType === "net" ? "bg-white text-slate-800 shadow-sm" : "text-slate-500 hover:text-slate-800"
+                  chartValueType === "net" ? "bg-surface-card text-on-surface shadow-sm" : "text-on-surface-variant hover:text-on-surface"
                 }`}
               >
                 Net Profit

@@ -187,12 +187,12 @@ export default function AIAdvisorTab() {
       <div className="lg:col-span-4 flex flex-col gap-6">
         
         {/* Mode Selector */}
-        <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-4">
+        <div className="bg-surface-card border border-outline-variant rounded-xl p-5 shadow-sm space-y-4">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-emerald-500" />
-            <h2 className="font-display text-lg font-bold text-slate-800">Advisor Hub</h2>
+            <Sparkles className="w-5 h-5 text-primary" />
+            <h2 className="font-display text-lg font-bold text-on-surface">Advisor Hub</h2>
           </div>
-          <p className="text-xs text-slate-500 leading-relaxed">
+          <p className="text-xs text-on-surface-variant leading-relaxed">
             Select an operational mode to interact with our Gemini-3.1-pro intelligence pipeline.
           </p>
 
@@ -201,12 +201,12 @@ export default function AIAdvisorTab() {
               onClick={() => setChatMode("chat")}
               className={`w-full py-3 px-4 rounded-xl text-left text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-between ${
                 chatMode === "chat"
-                  ? "bg-brand-primary text-white shadow-md shadow-brand-primary/10"
-                  : "bg-slate-50 text-slate-700 border border-slate-100 hover:bg-slate-100"
+                  ? "bg-primary text-on-primary shadow-md shadow-primary/10"
+                  : "bg-surface-container text-on-surface border border-outline-variant hover:bg-surface-container-high"
               }`}
             >
               <span>1. AI Portfolio Chat</span>
-              <span className="text-[9px] bg-emerald-400 text-slate-900 px-2 py-0.5 rounded-full font-bold">
+              <span className="text-[9px] bg-primary text-on-primary px-2 py-0.5 rounded-full font-bold">
                 Thinking On
               </span>
             </button>
@@ -215,12 +215,12 @@ export default function AIAdvisorTab() {
               onClick={() => setChatMode("scan")}
               className={`w-full py-3 px-4 rounded-xl text-left text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-between ${
                 chatMode === "scan"
-                  ? "bg-brand-primary text-white shadow-md shadow-brand-primary/10"
-                  : "bg-slate-50 text-slate-700 border border-slate-100 hover:bg-slate-100"
+                  ? "bg-primary text-on-primary shadow-md shadow-primary/10"
+                  : "bg-surface-container text-on-surface border border-outline-variant hover:bg-surface-container-high"
               }`}
             >
               <span>2. Statement Scanner</span>
-              <span className="text-[9px] bg-brand-primary-container text-white px-2 py-0.5 rounded-full font-bold">
+              <span className="text-[9px] bg-tertiary text-on-primary px-2 py-0.5 rounded-full font-bold">
                 Image Vision
               </span>
             </button>
@@ -229,8 +229,8 @@ export default function AIAdvisorTab() {
 
         {/* Dynamic Context Panel */}
         {chatMode === "chat" ? (
-          <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3">
-            <h3 className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+          <div className="bg-surface-card border border-outline-variant rounded-xl p-5 shadow-sm space-y-3">
+            <h3 className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
               Quick Suggestions
             </h3>
             <div className="flex flex-col gap-2">
@@ -238,7 +238,7 @@ export default function AIAdvisorTab() {
                 <button
                   key={idx}
                   onClick={() => handleSendMessage(query)}
-                  className="text-left text-xs text-slate-600 hover:text-brand-primary hover:bg-slate-50 p-2.5 rounded-lg border border-slate-100 transition-all leading-relaxed font-medium"
+                  className="text-left text-xs text-on-surface-variant hover:text-primary hover:bg-surface-container p-2.5 rounded-lg border border-outline-variant transition-all leading-relaxed font-medium"
                 >
                   {query}
                 </button>
@@ -246,8 +246,8 @@ export default function AIAdvisorTab() {
             </div>
           </div>
         ) : (
-          <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-3">
-            <h3 className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+          <div className="bg-surface-card border border-outline-variant rounded-xl p-5 shadow-sm space-y-3">
+            <h3 className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
               Statement Scans
             </h3>
             <div className="flex flex-col gap-2">
@@ -255,7 +255,7 @@ export default function AIAdvisorTab() {
                 <button
                   key={idx}
                   onClick={() => setImagePrompt(prompt)}
-                  className="text-left text-xs text-slate-600 hover:text-brand-primary hover:bg-slate-50 p-2.5 rounded-lg border border-slate-100 transition-all leading-relaxed font-medium"
+                  className="text-left text-xs text-on-surface-variant hover:text-primary hover:bg-surface-container p-2.5 rounded-lg border border-outline-variant transition-all leading-relaxed font-medium"
                 >
                   {prompt}
                 </button>
@@ -269,15 +269,15 @@ export default function AIAdvisorTab() {
       <div className="lg:col-span-8">
         {chatMode === "chat" ? (
           /* AI CHAT VIEW */
-          <div className="bg-white border border-slate-200 rounded-xl flex flex-col h-[520px] shadow-sm overflow-hidden">
-            <div className="bg-slate-50/50 p-4 border-b border-slate-200 flex items-center justify-between">
+          <div className="bg-surface-card border border-outline-variant rounded-xl flex flex-col h-[520px] shadow-sm overflow-hidden">
+            <div className="bg-surface-container/50 p-4 border-b border-outline-variant flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                <span className="font-display text-sm font-bold text-slate-800">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                <span className="font-display text-sm font-bold text-on-surface">
                   Advisor Chat (Gemini-3.1-pro)
                 </span>
               </div>
-              <span className="text-[9px] font-bold tracking-widest uppercase text-slate-400">
+              <span className="text-[9px] font-bold tracking-widest uppercase text-on-surface-variant">
                 Thinking Level: High
               </span>
             </div>

@@ -1,13 +1,11 @@
 import { useState } from "react";
 import Sidebar from "./components/Sidebar";
-import TopNavBar from "./components/TopNavBar";
 import DashboardTab from "./components/DashboardTab";
 import ComparisonsTab from "./components/ComparisonsTab";
 import CalculatorsTab from "./components/CalculatorsTab";
 import MarketDataTab from "./components/MarketDataTab";
-import AIAdvisorTab from "./components/AIAdvisorTab";
 import { TabPage } from "./types";
-import { X, LayoutDashboard, Percent, Calculator, TrendingUp, Sparkles, Settings } from "lucide-react";
+import { X, LayoutDashboard, Percent, Calculator, TrendingUp } from "lucide-react";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabPage>("dashboard");
@@ -61,7 +59,6 @@ export default function App() {
                 { id: "comparisons" as TabPage, label: "Comparisons", icon: Percent },
                 { id: "calculators" as TabPage, label: "Calculators", icon: Calculator },
                 { id: "market-data" as TabPage, label: "Market Data", icon: TrendingUp },
-                { id: "ai-advisor" as TabPage, label: "AI Advisor", icon: Sparkles, highlight: true },
               ].map((item) => {
                 const Icon = item.icon;
                 const isActive = activeTab === item.id;
@@ -85,20 +82,6 @@ export default function App() {
                 );
               })}
             </nav>
-
-            {/* Bottom Footer User Profile */}
-            <div className="mt-auto pt-6 border-t border-slate-100 flex items-center gap-3">
-              <img
-                className="w-10 h-10 rounded-full border border-slate-200 object-cover"
-                alt="Alex Rivera - Advisor"
-                referrerPolicy="no-referrer"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgL41nMqlymBilddOWiGzGKXL6R3gCYWueTa-JrUMKvsu8pWfS9fiKKAVE05nEAphuY0Cvlg4--WLej3x6BX0cHGwTnv-ZlmER-48B7uvmihCOCM8ISShKggr-S0vcnMWwLczrrCBzst2dKrQLgFjm-UE54CgoLZ97umQKS5i-QxxgJNxAd3itjV3nWHD8QYKIMlZvp9IOwC3GfUl3bt_KnLXo9iYOn91ppYUzujEyvtdlFsVwmlVTgXTw8fwOKdvHdyl52gwYPKA"
-              />
-              <div>
-                <p className="text-xs tracking-wider font-bold text-slate-800">Alex Rivera</p>
-                <p className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Premium Plan</p>
-              </div>
-            </div>
           </div>
         </div>
       )}
@@ -106,13 +89,6 @@ export default function App() {
       {/* 3. Main Workspace Area */}
       <div className="flex-grow flex flex-col md:pl-64 min-h-screen">
         
-        {/* Header bar */}
-        <TopNavBar
-          activeTab={activeTab}
-          onTabChange={handleTabChange}
-          onMobileMenuToggle={() => setMobileMenuOpen(true)}
-        />
-
         {/* Dynamic active page tab mount */}
         <main className="flex-grow p-4 md:p-12 max-w-7xl w-full mx-auto pb-20">
           {activeTab === "dashboard" && (
@@ -133,9 +109,6 @@ export default function App() {
           )}
           {activeTab === "market-data" && (
             <MarketDataTab />
-          )}
-          {activeTab === "ai-advisor" && (
-            <AIAdvisorTab />
           )}
         </main>
       </div>

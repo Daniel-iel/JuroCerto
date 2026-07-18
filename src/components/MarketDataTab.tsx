@@ -20,8 +20,8 @@ export default function MarketDataTab() {
     <div className="space-y-8 animate-fade-in">
       {/* Header */}
       <div>
-        <h1 className="font-display text-3xl font-bold text-slate-900 tracking-tight">Market Benchmarks</h1>
-        <p className="text-sm text-slate-500 mt-1">Real-time fixed income yields and official macroeconomic reference indices.</p>
+        <h1 className="font-display text-3xl font-bold text-on-surface tracking-tight">Market Benchmarks</h1>
+        <p className="text-sm text-on-surface-variant mt-1">Real-time fixed income yields and official macroeconomic reference indices.</p>
       </div>
 
       {/* Benchmark Grid */}
@@ -29,35 +29,35 @@ export default function MarketDataTab() {
         {benchmarks.map((b, idx) => {
           const Icon = b.icon;
           return (
-            <div key={idx} className="bg-white border border-slate-200 p-5 rounded-xl flex flex-col gap-2.5 shadow-sm hover:shadow-md transition-all">
+            <div key={idx} className="bg-surface-card border border-outline-variant p-5 rounded-xl flex flex-col gap-2.5 shadow-sm hover:shadow-md transition-all">
               <div className="flex justify-between items-center">
-                <span className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest">{b.name}</span>
-                <Icon className="w-4 h-4 text-emerald-500" />
+                <span className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">{b.name}</span>
+                <Icon className="w-4 h-4 text-primary" />
               </div>
               <div>
-                <p className="font-display text-2xl font-bold text-slate-900">{b.rate}</p>
-                <p className="text-[10px] font-bold text-emerald-600 uppercase tracking-wider">{b.ppa}</p>
+                <p className="font-display text-2xl font-bold text-on-surface">{b.rate}</p>
+                <p className="text-[10px] font-bold text-primary uppercase tracking-wider">{b.ppa}</p>
               </div>
-              <div className="pt-2 border-t border-slate-50 flex items-center justify-between text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+              <div className="pt-2 border-t border-outline-variant flex items-center justify-between text-[10px] text-on-surface-variant font-bold uppercase tracking-wider">
                 <span>{b.update}</span>
-                <span className={b.change.startsWith("+") ? "text-rose-500" : b.change.startsWith("-") ? "text-emerald-500" : "text-slate-400"}>
+                <span className={b.change.startsWith("+") ? "text-error" : b.change.startsWith("-") ? "text-primary" : "text-on-surface-variant"}>
                   {b.change}
                 </span>
               </div>
-              <p className="text-[11px] text-slate-500 leading-normal">{b.desc}</p>
+              <p className="text-[11px] text-on-surface-variant leading-normal">{b.desc}</p>
             </div>
           );
         })}
       </div>
 
       {/* Treasury Bonds Table */}
-      <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-        <div className="p-6 border-b border-slate-200 flex justify-between items-center bg-slate-50/50">
+      <div className="bg-surface-card border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+        <div className="p-6 border-b border-outline-variant flex justify-between items-center bg-surface-container/50">
           <div className="flex items-center gap-2">
-            <ShieldCheck className="w-5 h-5 text-brand-primary" />
-            <h2 className="font-display text-lg font-bold text-slate-800">Direct Treasury Bonds (Tesouro Direto)</h2>
+            <ShieldCheck className="w-5 h-5 text-primary" />
+            <h2 className="font-display text-lg font-bold text-on-surface">Direct Treasury Bonds (Tesouro Direto)</h2>
           </div>
-          <div className="text-slate-400 text-xs font-sans font-bold uppercase tracking-wider">
+          <div className="text-on-surface-variant text-xs font-sans font-bold uppercase tracking-wider">
             Sovereign Debt Issuances
           </div>
         </div>
@@ -65,29 +65,29 @@ export default function MarketDataTab() {
         <div className="overflow-x-auto custom-scrollbar">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-slate-50 border-b border-slate-200">
-                <th className="px-6 py-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider">Bond Code</th>
-                <th className="px-6 py-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Annual Yield Rate</th>
-                <th className="px-6 py-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Min. Investment</th>
-                <th className="px-6 py-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider">Type</th>
-                <th className="px-6 py-4 font-sans text-xs font-bold text-slate-500 uppercase tracking-wider">Maturity Date</th>
+              <tr className="bg-surface-container border-b border-outline-variant">
+                <th className="px-6 py-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">Bond Code</th>
+                <th className="px-6 py-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider text-right">Annual Yield Rate</th>
+                <th className="px-6 py-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider text-right">Min. Investment</th>
+                <th className="px-6 py-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">Type</th>
+                <th className="px-6 py-4 font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">Maturity Date</th>
                 <th className="px-6 py-4"></th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-outline-variant">
               {treasuryBonds.map((bond, idx) => (
-                <tr key={idx} className="hover:bg-slate-50/30 transition-colors">
-                  <td className="px-6 py-4 font-sans text-sm font-bold text-slate-800">{bond.code}</td>
-                  <td className="px-6 py-4 font-mono text-sm text-right font-bold text-emerald-600">{bond.rate}</td>
-                  <td className="px-6 py-4 font-mono text-sm text-right text-slate-700 font-semibold">{bond.minInvestment}</td>
+                <tr key={idx} className="hover:bg-surface-container/30 transition-colors">
+                  <td className="px-6 py-4 font-sans text-sm font-bold text-on-surface">{bond.code}</td>
+                  <td className="px-6 py-4 font-mono text-sm text-right font-bold text-primary">{bond.rate}</td>
+                  <td className="px-6 py-4 font-mono text-sm text-right text-on-surface font-semibold">{bond.minInvestment}</td>
                   <td className="px-6 py-4">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-600 uppercase">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-surface-container-high text-on-surface uppercase">
                       {bond.type}
                     </span>
                   </td>
-                  <td className="px-6 py-4 font-mono text-xs text-slate-500">{bond.maturity}</td>
+                  <td className="px-6 py-4 font-mono text-xs text-on-surface-variant">{bond.maturity}</td>
                   <td className="px-6 py-4 text-right">
-                    <ChevronRight className="w-4 h-4 text-slate-400" />
+                    <ChevronRight className="w-4 h-4 text-on-surface-variant" />
                   </td>
                 </tr>
               ))}
