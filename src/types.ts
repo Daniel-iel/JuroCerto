@@ -55,4 +55,4 @@ export interface ChatMessage {
   isThinking?: boolean;
 }
 
-export type TabPage = 'dashboard' | 'comparisons' | 'calculators' | 'market-data';
+export type TabPage = 'dashboard' | 'comparisons' | 'calculators';

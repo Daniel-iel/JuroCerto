@@ -3,9 +3,8 @@ import Sidebar from "./components/Sidebar";
 import DashboardTab from "./components/DashboardTab";
 import ComparisonsTab from "./components/ComparisonsTab";
 import CalculatorsTab from "./components/CalculatorsTab";
-import MarketDataTab from "./components/MarketDataTab";
 import { TabPage } from "./types";
-import { X, LayoutDashboard, Percent, Calculator, TrendingUp } from "lucide-react";
+import { X, LayoutDashboard, Percent, Calculator } from "lucide-react";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabPage>("dashboard");
@@ -58,7 +57,6 @@ export default function App() {
                 { id: "dashboard" as TabPage, label: "Dashboard", icon: LayoutDashboard },
                 { id: "comparisons" as TabPage, label: "Comparisons", icon: Percent },
                 { id: "calculators" as TabPage, label: "Calculators", icon: Calculator },
-                { id: "market-data" as TabPage, label: "Market Data", icon: TrendingUp },
               ].map((item) => {
                 const Icon = item.icon;
                 const isActive = activeTab === item.id;
@@ -106,9 +104,6 @@ export default function App() {
             <CalculatorsTab 
               initialCalculator={selectedCalculator} 
             />
-          )}
-          {activeTab === "market-data" && (
-            <MarketDataTab />
           )}
         </main>
       </div>

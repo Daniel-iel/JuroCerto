@@ -1,4 +1,4 @@
-import { LayoutDashboard, Percent, Calculator, TrendingUp } from "lucide-react";
+import { LayoutDashboard, Percent, Calculator } from "lucide-react";
 import { TabPage } from "../types";
 
 interface SidebarProps {
@@ -11,7 +11,6 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
     { id: "dashboard" as TabPage, label: "Painel", icon: LayoutDashboard },
     { id: "comparisons" as TabPage, label: "Comparações", icon: Percent },
     { id: "calculators" as TabPage, label: "Calculadoras", icon: Calculator },
-    { id: "market-data" as TabPage, label: "Dados de Mercado", icon: TrendingUp },
   ];
 
   return (
