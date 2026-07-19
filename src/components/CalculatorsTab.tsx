@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Calculator, Percent, ShieldCheck, RefreshCw, HelpCircle, ArrowRight } from "lucide-react";
+import InputField from "./form/InputField";
 
 interface CalculatorsTabProps {
   initialCalculator?: string;
@@ -140,51 +141,31 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
               Simulador de Juros Compostos
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
-                  Capital Inicial (R$)
-                </label>
-                <input
-                  type="number"
-                  value={principal}
-                  onChange={(e) => setPrincipal(parseFloat(e.target.value) || 0)}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm font-semibold text-slate-800 font-mono"
-                />
-              </div>
-              <div>
-                <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
-                  Contribuição Mensal (R$)
-                </label>
-                <input
-                  type="number"
-                  value={monthly}
-                  onChange={(e) => setMonthly(parseFloat(e.target.value) || 0)}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm font-semibold text-slate-800 font-mono"
-                />
-              </div>
-              <div>
-                <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
-                  Taxa de Rendimento Anual (% a.a.)
-                </label>
-                <input
-                  type="number"
-                  step="0.01"
-                  value={rate}
-                  onChange={(e) => setRate(parseFloat(e.target.value) || 0)}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm font-semibold text-slate-800 font-mono"
-                />
-              </div>
-              <div>
-                <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
-                  Período do Horizonte (Anos)
-                </label>
-                <input
-                  type="number"
-                  value={years}
-                  onChange={(e) => setYears(parseInt(e.target.value) || 0)}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm font-semibold text-slate-800 font-mono"
-                />
-              </div>
+              <InputField
+                label="Capital Inicial (R$)"
+                type="number"
+                value={principal}
+                onChange={(e) => setPrincipal(parseFloat(e.target.value) || 0)}
+              />
+              <InputField
+                label="Contribuição Mensal (R$)"
+                type="number"
+                value={monthly}
+                onChange={(e) => setMonthly(parseFloat(e.target.value) || 0)}
+              />
+              <InputField
+                label="Taxa de Rendimento Anual (% a.a.)"
+                type="number"
+                step="0.01"
+                value={rate}
+                onChange={(e) => setRate(parseFloat(e.target.value) || 0)}
+              />
+              <InputField
+                label="Período do Horizonte (Anos)"
+                type="number"
+                value={years}
+                onChange={(e) => setYears(parseInt(e.target.value) || 0)}
+              />
             </div>
 
             <button
@@ -225,29 +206,19 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
               Calculadora de Equivalência Fiscal CDB vs LCI/LCA
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
-                  Taxa de CDB (% do CDI)
-                </label>
-                <input
-                  type="number"
-                  value={cdbRate}
-                  onChange={(e) => setCdbRate(parseFloat(e.target.value) || 0)}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm font-semibold text-slate-800 font-mono"
-                />
-              </div>
-              <div>
-                <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
-                  CDI Base (% a.a.)
-                </label>
-                <input
-                  type="number"
-                  step="0.01"
-                  value={cdiRateValue}
-                  onChange={(e) => setCdiRateValue(parseFloat(e.target.value) || 0)}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm font-semibold text-slate-800 font-mono"
-                />
-              </div>
+              <InputField
+                label="Taxa de CDB (% do CDI)"
+                type="number"
+                value={cdbRate}
+                onChange={(e) => setCdbRate(parseFloat(e.target.value) || 0)}
+              />
+              <InputField
+                label="CDI Base (% a.a.)"
+                type="number"
+                step="0.01"
+                value={cdiRateValue}
+                onChange={(e) => setCdiRateValue(parseFloat(e.target.value) || 0)}
+              />
               <div>
                 <label className="font-sans text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1">
                   Income Tax Rate (%)
@@ -255,7 +226,7 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
                 <select
                   value={taxRateValue}
                   onChange={(e) => setTaxRateValue(parseInt(e.target.value))}
-                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm font-semibold text-slate-800"
+                  className="w-full px-3 py-2 border border-outline-variant rounded-lg text-sm font-semibold text-on-surface bg-surface-base"
                 >
                   <option value={22.5}>22.5% (Up to 6m)</option>
                   <option value={20}>20.0% (6m to 12m)</option>
@@ -310,40 +281,25 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
               Inflation Adjustment Simulator (IPCA)
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">
-                  Nominal Capital Amount (R$)
-                </label>
-                <input
-                  type="number"
-                  value={nominalAmount}
-                  onChange={(e) => setNominalAmount(parseFloat(e.target.value) || 0)}
-                  className="w-full px-3 py-2 border border-outline-variant rounded-lg text-sm font-semibold text-on-surface font-mono"
-                />
-              </div>
-              <div>
-                <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">
-                  Projected IPCA Rate (% p.a.)
-                </label>
-                <input
-                  type="number"
-                  step="0.01"
-                  value={inflationRate}
-                  onChange={(e) => setInflationRate(parseFloat(e.target.value) || 0)}
-                  className="w-full px-3 py-2 border border-outline-variant rounded-lg text-sm font-semibold text-on-surface font-mono"
-                />
-              </div>
-              <div>
-                <label className="font-sans text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">
-                  Time Period (Years)
-                </label>
-                <input
-                  type="number"
-                  value={inflationYears}
-                  onChange={(e) => setInflationYears(parseInt(e.target.value) || 0)}
-                  className="w-full px-3 py-2 border border-outline-variant rounded-lg text-sm font-semibold text-on-surface font-mono"
-                />
-              </div>
+              <InputField
+                label="Nominal Capital Amount (R$)"
+                type="number"
+                value={nominalAmount}
+                onChange={(e) => setNominalAmount(parseFloat(e.target.value) || 0)}
+              />
+              <InputField
+                label="Projected IPCA Rate (% p.a.)"
+                type="number"
+                step="0.01"
+                value={inflationRate}
+                onChange={(e) => setInflationRate(parseFloat(e.target.value) || 0)}
+              />
+              <InputField
+                label="Time Period (Years)"
+                type="number"
+                value={inflationYears}
+                onChange={(e) => setInflationYears(parseInt(e.target.value) || 0)}
+              />
             </div>
 
             <button
