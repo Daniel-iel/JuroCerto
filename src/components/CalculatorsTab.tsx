@@ -86,7 +86,7 @@ export default function CalculatorsTab({ initialCalculator = "compound" }: Calcu
       <div className="lg:col-span-4 bg-surface-card border border-outline-variant rounded-xl p-5 shadow-sm space-y-4">
         <div className="flex items-center gap-2">
           <Calculator className="w-5 h-5 text-primary" />
-          <h2 className="font-display text-lg font-bold text-on-surface">Calculadoras</h2>
+          <h1 className="font-display text-lg font-bold text-on-surface">Calculadoras</h1>
         </div>
         <p className="text-xs text-on-surface-variant leading-relaxed">
           Simule modelos padrão de equivalência financeira e fórmulas de juros compostos.

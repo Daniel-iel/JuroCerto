@@ -1,0 +1,9 @@
+# JuroCerto - Robots.txt
+# https://jurocerto.com/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://jurocerto.com/sitemap.xml

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Sidebar from "./components/Sidebar";
+import Home from "./components/Home";
 import DashboardTab from "./components/DashboardTab";
 import ComparisonsTab from "./components/ComparisonsTab";
 import CalculatorsTab from "./components/CalculatorsTab";
@@ -7,6 +8,7 @@ import { TabPage } from "./types";
 import { X, LayoutDashboard, Percent, Calculator } from "lucide-react";
 
 export default function App() {
+  const [hasEnteredApp, setHasEnteredApp] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<TabPage>("dashboard");
   const [selectedCalculator, setSelectedCalculator] = useState<string>("compound");
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -20,6 +22,11 @@ export default function App() {
   const handleSelectCalculator = (calcName: string) => {
     setSelectedCalculator(calcName);
   };
+
+  // Show Home page if user hasn't entered the app yet
+  if (!hasEnteredApp) {
+    return <Home onEnter={() => setHasEnteredApp(true)} />;
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 flex text-slate-800">

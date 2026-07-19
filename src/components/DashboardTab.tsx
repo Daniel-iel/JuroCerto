@@ -115,7 +115,7 @@ export default function DashboardTab({ onTabChange, onSelectCalculator }: Dashbo
       <section>
         <div className="flex justify-between items-end mb-4">
           <div>
-            <h2 className="font-display text-2xl font-bold text-on-surface">Pulso de Mercado</h2>
+            <h1 className="font-display text-2xl font-bold text-on-surface">Pulso de Mercado</h1>
             <p className="text-sm text-on-surface-variant mt-0.5">Indicadores macroeconômicos primários usados para cálculos de renda fixa brasileira.</p>
           </div>
           <span className="font-sans text-xs font-bold text-on-surface-variant uppercase tracking-wider">

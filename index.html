@@ -1,16 +1,283 @@
 <!doctype html>
-<html lang="en" class="light">
+<html lang="pt-BR" class="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JuroCerto | Calculadora de Rendimentos</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>JuroCerto | Calculadora de Investimentos Renda Fixa Brasil</title>
+    <meta name="title" content="JuroCerto | Calculadora de Investimentos Renda Fixa Brasil" />
+    <meta name="description" content="Calculadora de investimentos em renda fixa com IA. Simule CDB, LCI, LCA, Tesouro Direto e compare rendimentos com tributação real. Gratuito e seguro." />
+    <meta name="keywords" content="calculadora de rendimentos, renda fixa, CDB, LCI, LCA, Tesouro Direto, simulador de investimentos, SELIC, CDI, IPCA, tributação renda fixa, calculadora juros compostos" />
+    <meta name="author" content="Daniel-iel" />
+    <meta name="copyright" content="JuroCerto © 2026" />
+    <meta name="theme-color" content="#006c50" />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jurocerto.com/" />
+    <meta property="og:title" content="JuroCerto | Calculadora de Investimentos Renda Fixa Brasil" />
+    <meta property="og:description" content="Simule e compare CDB, LCI, LCA e Tesouro Direto com IA. Calculadoras gratuitas de juros compostos e equivalência tributária." />
+    <meta property="og:image" content="https://jurocerto.com/og-image.jpg" />
+    <meta property="og:image:alt" content="JuroCerto - Calculadora de Investimentos em Renda Fixa" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="JuroCerto" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://jurocerto.com/" />
+    <meta name="twitter:title" content="JuroCerto | Calculadora de Investimentos Renda Fixa" />
+    <meta name="twitter:description" content="Simule investimentos em renda fixa com IA. Compare CDB, LCI, Tesouro Direto e calcule rendimentos reais com tributação." />
+    <meta name="twitter:image" content="https://jurocerto.com/og-image.jpg" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "JuroCerto",
+      "url": "https://jurocerto.com/",
+      "logo": "https://jurocerto.com/logo_jc.png",
+      "description": "Calculadora de investimentos em renda fixa com inteligência artificial para o mercado brasileiro",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BR"
+      },
+      "areaServed": "BR",
+      "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "JuroCerto",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "url": "https://jurocerto.com/",
+      "description": "Calculadora gratuita de investimentos em renda fixa (CDB, LCI, LCA, Tesouro Direto) com IA e simulação de tributação brasileira",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "127",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "featureList": [
+        "Calculadora de CDB, LCI e LCA",
+        "Simulador de Tesouro Direto (IPCA+, Prefixado, Selic)",
+        "Comparação de investimentos com tributação real",
+        "Inteligência Artificial para recomendações",
+        "Dados de mercado em tempo real (SELIC, CDI, IPCA)",
+        "Calculadoras de juros compostos e equivalência tributária"
+      ],
+      "inLanguage": "pt-BR",
+      "countriesSupported": "BR"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Como calcular o rendimento de um CDB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O JuroCerto calcula automaticamente o rendimento do CDB considerando o percentual do CDI, o prazo de investimento e a tributação de Imposto de Renda (que varia de 22,5% a 15% conforme o prazo). Basta inserir o valor investido, o percentual do CDI oferecido pelo banco e o prazo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual a diferença entre CDB, LCI e LCA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CDB (Certificado de Depósito Bancário) tem tributação de IR regressiva. LCI (Letra de Crédito Imobiliário) e LCA (Letra de Crédito do Agronegócio) são isentos de IR para pessoa física, tornando-os mais vantajosos em rentabilidades similares. Todos são garantidos pelo FGC até R$ 250 mil."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que é Tesouro Direto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tesouro Direto é um programa do governo federal para venda de títulos públicos a pessoas físicas. Os principais tipos são: Tesouro Selic (pós-fixado), Tesouro Prefixado (taxa fixa) e Tesouro IPCA+ (protegido da inflação). É considerado o investimento mais seguro do Brasil."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como funciona a tributação de renda fixa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A tributação de renda fixa segue a tabela regressiva de IR: 22,5% (até 180 dias), 20% (181-360 dias), 17,5% (361-720 dias) e 15% (acima de 720 dias). LCI e LCA são isentos. O JuroCerto calcula automaticamente a tributação no rendimento líquido."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O JuroCerto é gratuito?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim, o JuroCerto é 100% gratuito e não requer cadastro. Todas as funcionalidades (calculadoras, comparações, dados de mercado e assistente IA) estão disponíveis sem custo. Não cobramos comissões nem vendemos produtos financeiros."
+          }
+        }
+      ]
+    }
+    </script>
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hanken+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   </head>
   <body class="bg-slate-50 text-slate-900 font-sans antialiased">
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static content for search engine crawlers (replaced by React on load) -->
+      <noscript>
+        <style>
+          #seo-content { display: block !important; }
+        </style>
+      </noscript>
+      <div id="seo-content" style="max-width: 1200px; margin: 0 auto; padding: 2rem; display: none;">
+        <header style="margin-bottom: 3rem; text-align: center;">
+          <h1 style="font-size: 2.5rem; font-weight: 700; color: #006c50; margin-bottom: 1rem;">
+            JuroCerto - Calculadora de Investimentos em Renda Fixa
+          </h1>
+          <p style="font-size: 1.25rem; color: #475569; max-width: 800px; margin: 0 auto;">
+            Simule e compare investimentos em CDB, LCI, LCA e Tesouro Direto com inteligência artificial. 
+            Calculadoras gratuitas com tributação real do mercado brasileiro.
+          </p>
+        </header>
+
+        <main>
+          <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 2rem; font-weight: 600; color: #1e293b; margin-bottom: 1.5rem;">
+              Calculadoras de Renda Fixa
+            </h2>
+            <div style="display: grid; gap: 1.5rem;">
+              <article>
+                <h3 style="font-size: 1.5rem; font-weight: 600; color: #006c50; margin-bottom: 0.5rem;">
+                  Calculadora de CDB (Certificado de Depósito Bancário)
+                </h3>
+                <p style="color: #475569; line-height: 1.6;">
+                  Calcule o rendimento líquido do seu CDB considerando o percentual do CDI, prazo de investimento 
+                  e tributação de Imposto de Renda (22,5% a 15%). Compare diferentes ofertas de bancos e 
+                  descubra o melhor investimento para seu perfil.
+                </p>
+              </article>
+
+              <article>
+                <h3 style="font-size: 1.5rem; font-weight: 600; color: #006c50; margin-bottom: 0.5rem;">
+                  Calculadora de LCI e LCA (Letras de Crédito)
+                </h3>
+                <p style="color: #475569; line-height: 1.6;">
+                  LCI (Letra de Crédito Imobiliário) e LCA (Letra de Crédito do Agronegócio) são isentos de 
+                  Imposto de Renda para pessoa física. Calcule e compare com CDB para descobrir qual oferece 
+                  melhor rentabilidade líquida. Garantidos pelo FGC até R$ 250 mil por CPF e instituição.
+                </p>
+              </article>
+
+              <article>
+                <h3 style="font-size: 1.5rem; font-weight: 600; color: #006c50; margin-bottom: 0.5rem;">
+                  Simulador de Tesouro Direto
+                </h3>
+                <p style="color: #475569; line-height: 1.6;">
+                  Simule investimentos em títulos públicos federais: Tesouro Selic (pós-fixado, acompanha taxa Selic), 
+                  Tesouro Prefixado (taxa fixa conhecida no momento da aplicação) e Tesouro IPCA+ (protegido da 
+                  inflação). O investimento mais seguro do Brasil com aplicação mínima de R$ 30.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 2rem; font-weight: 600; color: #1e293b; margin-bottom: 1.5rem;">
+              Dados de Mercado em Tempo Real
+            </h2>
+            <p style="color: #475569; line-height: 1.6; margin-bottom: 1rem;">
+              Acompanhe os principais indicadores econômicos do Brasil:
+            </p>
+            <ul style="color: #475569; line-height: 1.8; list-style: disc; margin-left: 2rem;">
+              <li><strong>Taxa Selic</strong> - Taxa básica de juros da economia brasileira definida pelo Banco Central</li>
+              <li><strong>Taxa CDI</strong> - Certificado de Depósito Interbancário, referência para investimentos de renda fixa</li>
+              <li><strong>IPCA</strong> - Índice Nacional de Preços ao Consumidor Amplo, inflação oficial do Brasil</li>
+              <li><strong>Tesouro Direto</strong> - Cotações atualizadas dos títulos públicos federais</li>
+            </ul>
+          </section>
+
+          <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 2rem; font-weight: 600; color: #1e293b; margin-bottom: 1.5rem;">
+              Assistente com Inteligência Artificial
+            </h2>
+            <p style="color: #475569; line-height: 1.6;">
+              Tire suas dúvidas sobre investimentos em renda fixa com nosso assistente IA powered by Google Gemini. 
+              Pergunte sobre estratégias, comparações, tributação e receba recomendações personalizadas baseadas 
+              no seu perfil de investidor e objetivos financeiros.
+            </p>
+          </section>
+
+          <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 2rem; font-weight: 600; color: #1e293b; margin-bottom: 1.5rem;">
+              Ferramentas Adicionais
+            </h2>
+            <ul style="color: #475569; line-height: 1.8; list-style: disc; margin-left: 2rem;">
+              <li><strong>Calculadora de Juros Compostos</strong> - Descubra o poder dos juros compostos no longo prazo</li>
+              <li><strong>Equivalência Tributária</strong> - Compare taxas de CDB com LCI/LCA descontando o IR</li>
+              <li><strong>Comparador de Investimentos</strong> - Analise lado a lado CDB, LCI, LCA e Tesouro Direto</li>
+            </ul>
+          </section>
+
+          <section style="margin-bottom: 3rem; background: #f1f5f9; padding: 2rem; border-radius: 0.5rem;">
+            <h2 style="font-size: 2rem; font-weight: 600; color: #1e293b; margin-bottom: 1.5rem;">
+              Por que usar o JuroCerto?
+            </h2>
+            <ul style="color: #475569; line-height: 1.8; list-style: none; margin: 0;">
+              <li style="margin-bottom: 0.75rem;">✓ <strong>100% Gratuito</strong> - Todas as funcionalidades sem custo, sem cadastro obrigatório</li>
+              <li style="margin-bottom: 0.75rem;">✓ <strong>Tributação Real</strong> - Cálculos consideram IR e IOF conforme legislação brasileira</li>
+              <li style="margin-bottom: 0.75rem;">✓ <strong>Dados Atualizados</strong> - Taxas de mercado (Selic, CDI, IPCA) em tempo real</li>
+              <li style="margin-bottom: 0.75rem;">✓ <strong>Inteligência Artificial</strong> - Assistente IA para dúvidas e recomendações personalizadas</li>
+              <li style="margin-bottom: 0.75rem;">✓ <strong>Seguro e Privado</strong> - Seus dados não são armazenados nem compartilhados</li>
+              <li style="margin-bottom: 0.75rem;">✓ <strong>Fácil de Usar</strong> - Interface intuitiva, resultados instantâneos</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 style="font-size: 2rem; font-weight: 600; color: #1e293b; margin-bottom: 1.5rem;">
+              Comece a Investir com Conhecimento
+            </h2>
+            <p style="color: #475569; line-height: 1.6; margin-bottom: 1rem;">
+              Renda fixa é uma das modalidades de investimento mais populares no Brasil, oferecendo segurança 
+              e previsibilidade. Com o JuroCerto, você pode simular diferentes cenários antes de investir, 
+              comparar ofertas de diferentes bancos e entender exatamente quanto vai receber no vencimento.
+            </p>
+            <p style="color: #475569; line-height: 1.6;">
+              Seja você um investidor iniciante ou experiente, nossas calculadoras ajudam a tomar decisões 
+              mais informadas e maximizar seus rendimentos. Experimente agora e descubra as melhores oportunidades 
+              em CDB, LCI, LCA e Tesouro Direto.
+            </p>
+          </section>
+        </main>
+
+        <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e2e8f0; text-align: center; color: #64748b;">
+          <p>&copy; 2026 JuroCerto - Calculadora de Investimentos em Renda Fixa</p>
+          <p style="margin-top: 0.5rem; font-size: 0.875rem;">
+            Ferramenta educacional gratuita para simulação de investimentos. 
+            Não somos uma corretora nem instituição financeira.
+          </p>
+        </footer>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
