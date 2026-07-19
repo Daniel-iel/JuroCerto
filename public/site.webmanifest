@@ -4,23 +4,29 @@
   "description": "Calculadora de Investimentos em Renda Fixa com IA",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
+      "src": "/JuroCerto/apple-touch-icon.png",
+      "sizes": "180x180",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
+      "src": "/JuroCerto/favicon-32x32.png",
+      "sizes": "32x32",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/JuroCerto/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
   "theme_color": "#006c50",
   "background_color": "#ffffff",
   "display": "standalone",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/JuroCerto/",
+  "scope": "/JuroCerto/",
   "orientation": "portrait-primary",
   "lang": "pt-BR",
   "dir": "ltr"
