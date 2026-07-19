@@ -10,7 +10,7 @@ export default function Home({ onEnter }: HomeProps) {
       {/* Header */}
       <div className="max-w-2xl mx-auto text-center mb-12">
         <div className="mb-6">
-          <img src="/logo_jc.png" alt="JuroCerto" className="h-16 mx-auto mb-4" />
+          <img src="./logo_jc.png" alt="JuroCerto" className="h-16 mx-auto mb-4" />
           <div className="text-xs tracking-widest text-slate-400 font-bold uppercase">Investimentos em Renda Fixa</div>
         </div>
 
