@@ -5,6 +5,9 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // GitHub Pages Configuration for: https://github.com/Daniel-iel/JuroCerto
+    // Deployed at: https://daniel-iel.github.io/JuroCerto/
+    base: '/JuroCerto/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
