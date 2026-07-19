@@ -599,8 +599,8 @@ export default function ComparisonsTab({ onTabChange }: ComparisonsTabProps) {
         </div>
         <div className="relative z-10 flex-shrink-0 w-full md:w-auto">
           <button
-            onClick={() => onTabChange("ai-advisor")}
             className="w-full md:w-auto bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+            disabled
           >
             <PhoneCall className="w-4 h-4" /> Speak to an Advisor
           </button>

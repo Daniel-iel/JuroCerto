@@ -39,7 +39,7 @@ export const API_VERSION = {
  * Verify API version is supported
  */
 export const isSupportedApiVersion = (version: string): boolean => {
-  return API_VERSION.SUPPORTED.includes(version);
+  return API_VERSION.SUPPORTED.includes(version as typeof API_VERSION.SUPPORTED[number]);
 };
 
 /**

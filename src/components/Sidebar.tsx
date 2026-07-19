@@ -8,9 +8,9 @@ interface SidebarProps {
 
 export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
   const menuItems = [
-    { id: "dashboard" as TabPage, label: "Painel", icon: LayoutDashboard },
-    { id: "comparisons" as TabPage, label: "Comparações", icon: Percent },
-    { id: "calculators" as TabPage, label: "Calculadoras", icon: Calculator },
+    { id: "dashboard" as TabPage, label: "Painel", icon: LayoutDashboard, highlight: false },
+    { id: "comparisons" as TabPage, label: "Comparações", icon: Percent, highlight: false },
+    { id: "calculators" as TabPage, label: "Calculadoras", icon: Calculator, highlight: false },
   ];
 
   return (

@@ -61,9 +61,9 @@ export default function App() {
             {/* Navigation links for mobile drawer */}
             <nav className="flex flex-col gap-2 mt-6 flex-grow">
               {[
-                { id: "dashboard" as TabPage, label: "Dashboard", icon: LayoutDashboard },
-                { id: "comparisons" as TabPage, label: "Comparisons", icon: Percent },
-                { id: "calculators" as TabPage, label: "Calculators", icon: Calculator },
+                { id: "dashboard" as TabPage, label: "Dashboard", icon: LayoutDashboard, highlight: false },
+                { id: "comparisons" as TabPage, label: "Comparisons", icon: Percent, highlight: false },
+                { id: "calculators" as TabPage, label: "Calculators", icon: Calculator, highlight: false },
               ].map((item) => {
                 const Icon = item.icon;
                 const isActive = activeTab === item.id;
